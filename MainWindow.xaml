@@ -1,12 +1,532 @@
 ﻿<Window x:Class="CyphersWatchfulEye.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:CyphersWatchfulEye"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        UseLayoutRounding="True"
+        Title="MainWindow"
+        SizeToContent="WidthAndHeight"
+        RenderOptions.BitmapScalingMode="HighQuality"
+        MinHeight="632" 
+        >
+    <Grid MinHeight="632" MinWidth="1230" Background="#FF232323" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--Top Bar-->
+        <Canvas Grid.Row="0" Width="180" Height="50" HorizontalAlignment="Right" Margin="0,0,8,0">
+            <Rectangle Width="180" Height="40" Canvas.Bottom="2" Canvas.Right="-3" RadiusX="10" RadiusY="10" Fill="Black" Opacity="1"/>
+            <Border CornerRadius="10" Height="40" Width="180" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Top="5" ClipToBounds="True">
+                <Border.Background>
+                    <ImageBrush Stretch="UniformToFill" ImageSource="https://i.imgur.com/Grg97EQ.png" Opacity=".8"/>
+                </Border.Background>
+                <Rectangle Width="180" Height="40" RadiusX="10" RadiusY="10" Fill="White" Opacity=".25"/>
+            </Border>
+            <Label Content="BIND" Width="180" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White" Background="#02FFFFFF" FontFamily="Microsoft YaHei UI" FontSize="16"/>
+        </Canvas>
+        <Canvas Grid.Row="0" Width="180" Height="50" HorizontalAlignment="Right" Margin="0,0,195,0">
+            <Rectangle Width="180" Height="40" Canvas.Bottom="2" Canvas.Right="-3" RadiusX="10" RadiusY="10" Fill="Black" Opacity="1"/>
+            <Rectangle Width="180" Height="40" Canvas.Bottom="2" Canvas.Right="-3" RadiusX="10" RadiusY="10" Fill="#FF191919" Opacity="1" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Top="5" />
+            <Path Fill="White" Data="M169 500 c-68 -36 -119 -115 -119 -185 0 -41 22 -97 52 -131 88 -99 228 -99 316 0 67 77 67 185 0 262 -64 72 -170 96 -249 54z m120 -36 c12 -15 21 -31 21 -35 0 -5 -22 -9 -50 -9 -27 0 -50 4 -50 9 0 12 40 61 50 61 5 0 18-12 29 -26z m-111 -19 c-6 -15 -20 -25 -31 -25 -20 0 -19 1 3 25 13 14 27 25 32 25 4 0 2 -11 -4 -25z m192 0 c22 -24 23 -25 3 -25 -11 0 -25 10 -31 25 -6 14 -8 25 -4 25 5 0 19 -11 32 -25z m-212 -87 c-2 -18 -11 -24 -35 -26 -27 -3 -33 0 -33 16 0 26 8 32 42 32 25 0 29 -4 26 -22z m170 -5 c3 -22 0 -23 -67 -23 -62 0 -71 2 -71 18 0 29 10 33 75 30 54 -3 60 -5 63 -25z m100 0 c3 -20 -1 -23 -32 -23 -32 0 -36 3 -36 26 0 23 3 25 33 22 24 -2 33 -8 35 -25z m-268 -79 c0 -23 -3 -25 -32 -22 -25 2 -34 8 -36 26 -3 19 1 22 32 22 32 0 36 -3 36 -26z m168 4 c-3 -21 -8 -23 -68 -23 -60 0 -65 2 -68 23 -3 21 0 22 68 22 68 0 71 -1 68 -22z m100 0 c-2 -18 -11 -24 -35 -26 -27 -3 -33 0 -33 16 0 26 8 32 42 32 25 0 29 -4 26 -22z m-250 -93 c6 -14 8 -25 4 -25 -5 0 -19 11 -32 25 -22 24 -23 25 -3 25 11 0 25 -10 31 -25z m132 16 c0 -6 -11 -23 -25 -38 l-25 -28 -25 28 c-14 15 -25 32 -25 38 0 5 23 9 50 9 28 0 50 -4 50 -9z m60 -16 c-13 -14 -27 -25 -32 -25 -4 0 -2 11 4 25 6 15 20 25 31 25 20 0 19 -1 -3 -25z" Height="34" Stretch="Fill" Width="34" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="10" Canvas.Top="8"/>
+            <Label Content="Sao Paulo" Width="131" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White" Background="#02FFFFFF" FontFamily="Microsoft YaHei UI" FontSize="16" HorizontalAlignment="Left" Canvas.Left="49" VerticalAlignment="Center"/>
+        </Canvas>
+        <Canvas Grid.Row="0" Width="180" Height="50" HorizontalAlignment="Right" Margin="0,0,380,0">
+            <Rectangle Width="180" Height="40" Canvas.Bottom="2" Canvas.Right="-3" RadiusX="10" RadiusY="10" Fill="Black" Opacity="1"/>
+            <Rectangle Width="180" Height="40" Canvas.Bottom="2" Canvas.Right="-3" RadiusX="10" RadiusY="10" Fill="#FF191919" Opacity="1" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Top="5" />
+            <Viewbox Width="43" Height="45" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" HorizontalAlignment="Center" Canvas.Left="10" VerticalAlignment="Top">
+                <Canvas Width="340" Height="340">
+                    <Path Data="M124 256 c-10 -26 4 -48 28 -44 17 2 23 10 23 28 0 18 -6 26 -23 28 -13 2 -25 -3 -28 -12z"
+                          Fill="White">
+                        <Path.RenderTransform>
+                            <ScaleTransform ScaleY="-1" CenterY="170"/>
+                        </Path.RenderTransform>
+                    </Path>
+                    <Path Data="M78 168 c-27 -11 -48 -24 -48 -29 0 -13 96 -59 122 -58 28 0 110 40 115 55 3 9 -81 54 -101 54 -3 0 -6 -13 -6 -30 0 -16 -4 -30 -10 -30 -5 0 -10 14 -10 30 0 35 0 35 -62 8z m7 -28 c3 -5 -1 -10 -10 -10 -9 0 -13 5 -10 10 3 6 8 10 10 10 2 0 7 -4 10 -10z"
+                          Fill="White" HorizontalAlignment="Center" Canvas.Top="0.666" VerticalAlignment="Top">
+                        <Path.RenderTransform>
+                            <ScaleTransform ScaleY="-1" CenterY="170"/>
+                        </Path.RenderTransform>
+                    </Path>
+                    <Path Data="M30 100 c0 -13 94 -60 120 -60 26 0 120 47 120 60 0 10 -10 7 -82 -24 -38 -16 -40 -16 -120 18 -21 9 -38 12 -38 6z"
+                          Fill="White">
+                        <Path.RenderTransform>
+                            <ScaleTransform ScaleY="-1" CenterY="170"/>
+                        </Path.RenderTransform>
+                    </Path>
+                </Canvas>
+            </Viewbox>
+
+            <Label Content="Competitive" Width="131" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White" Background="#02FFFFFF" FontFamily="Microsoft YaHei UI" FontSize="16" HorizontalAlignment="Left" Canvas.Left="49" VerticalAlignment="Center"/>
+        </Canvas>
+        <Canvas Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="40" Height="40" Margin="5,0,0,0" >
+            <Rectangle Width="40" Height="40" Canvas.Bottom="-2" Canvas.Left="2" RadiusX="10" RadiusY="10" Fill="Black" Opacity="1"/>
+            <Rectangle Width="40" Height="40" RadiusX="10" RadiusY="10" Fill="#FF191919" Opacity="1" HorizontalAlignment="Left" VerticalAlignment="Center"  />
+            <Path Width="27" Height="27" Fill="White" Data="M17.5 0C16.7569 0 16.1538 0.603077 16.1538 1.34615V1.57752C16.1538 2.22099 15.7007 2.79508 15.0654 2.89739C14.7571 2.94719 14.4519 3.00489 14.1504 3.07354C13.5258 3.21623 12.8941 2.8626 12.6491 2.27163L12.5597 2.0613C12.2757 1.37476 11.4887 1.04762 10.8008 1.33301C10.1142 1.61705 9.78711 2.40406 10.0725 3.09195L10.1619 3.30754C10.4096 3.89985 10.2115 4.60105 9.66496 4.94028C9.40112 5.10451 9.14371 5.27657 8.89198 5.4556C8.36967 5.82849 7.64716 5.74362 7.19351 5.28996L7.0305 5.12695C6.50415 4.60061 5.65195 4.60061 5.12695 5.12695C4.60195 5.6533 4.60195 6.5055 5.12695 7.0305L5.28996 7.19351C5.74362 7.64716 5.82849 8.36832 5.4556 8.89198C5.27657 9.14371 5.10451 9.40112 4.94028 9.66496C4.60105 10.2115 3.89857 10.4109 3.30491 10.1645L3.09195 10.0751C2.40541 9.79108 1.61576 10.1169 1.33038 10.8034C1.04634 11.4899 1.37213 12.277 2.05867 12.5624L2.26901 12.6491C2.85997 12.8941 3.21623 13.5258 3.07354 14.1504C3.00489 14.4519 2.94456 14.7571 2.89476 15.0654C2.7938 15.6994 2.22099 16.1538 1.57752 16.1538H1.34615C0.603077 16.1538 0 16.7569 0 17.5C0 18.2431 0.603077 18.8462 1.34615 18.8462H1.57752C2.22099 18.8462 2.79508 19.2993 2.89739 19.9346C2.94719 20.2429 3.00489 20.5481 3.07354 20.8496C3.21623 21.4742 2.8626 22.1059 2.27163 22.3509L2.0613 22.4403C1.37476 22.7243 1.04762 23.5113 1.33301 24.1992C1.61705 24.8858 2.40406 25.2129 3.09195 24.9275L3.30754 24.8381C3.9012 24.5918 4.60233 24.7898 4.94291 25.335C5.10714 25.5989 5.27785 25.8576 5.45823 26.1107C5.83112 26.633 5.74625 27.3555 5.29259 27.8091L5.12695 27.9721C4.60061 28.4985 4.60061 29.3507 5.12695 29.8757C5.6533 30.4007 6.5055 30.402 7.0305 29.8757L7.19614 29.7127C7.64979 29.259 8.36967 29.1715 8.89198 29.5444C9.14505 29.7248 9.40375 29.8981 9.66759 30.0623C10.2128 30.4016 10.4135 31.1041 10.1671 31.6977L10.0777 31.9107C9.79371 32.5972 10.1195 33.3869 10.806 33.6723C11.4926 33.9563 12.2796 33.6305 12.565 32.944L12.6517 32.7336C12.8967 32.1427 13.5284 31.7864 14.153 31.9291C14.4546 31.9977 14.7597 32.0581 15.068 32.1079C15.6993 32.2061 16.1538 32.779 16.1538 33.4225V33.6538C16.1538 34.3969 16.7569 35 17.5 35C18.2431 35 18.8462 34.3969 18.8462 33.6538V33.4225C18.8462 32.779 19.2993 32.2049 19.9346 32.1026C20.2429 32.0528 20.5481 31.9951 20.8496 31.9265C21.4742 31.7838 22.1059 32.1374 22.3509 32.7284L22.4403 32.9387C22.7243 33.6252 23.5113 33.9524 24.1992 33.667C24.8858 33.383 25.2129 32.5959 24.9275 31.9081L24.8381 31.6925C24.5918 31.0988 24.7898 30.3977 25.335 30.0571C25.5989 29.8929 25.8576 29.7222 26.1107 29.5418C26.633 29.1689 27.3555 29.2538 27.8091 29.7074L27.9721 29.873C28.4985 30.3994 29.3507 30.3994 29.8757 29.873C30.4007 29.3467 30.402 28.4945 29.8757 27.9695L29.7127 27.8039C29.259 27.3502 29.1715 26.6303 29.5444 26.108C29.7248 25.8549 29.8981 25.5963 30.0623 25.3324C30.4016 24.7872 31.1041 24.5865 31.6977 24.8329L31.9107 24.9223C32.5972 25.2063 33.3869 24.8805 33.6723 24.194C33.9563 23.5074 33.6305 22.7204 32.944 22.435L32.7336 22.3483C32.1427 22.1033 31.7864 21.4716 31.9291 20.847C31.9977 20.5454 32.0581 20.2403 32.1079 19.932C32.2061 19.3007 32.779 18.8462 33.4225 18.8462H33.6538C34.3969 18.8462 35 18.2431 35 17.5C35 16.7569 34.3969 16.1538 33.6538 16.1538H33.4225C32.779 16.1538 32.2049 15.7007 32.1026 15.0654C32.0528 14.7571 31.9951 14.4519 31.9265 14.1504C31.7838 13.5258 32.1374 12.8941 32.7284 12.6491L32.9387 12.5597C33.6252 12.2757 33.9524 11.4887 33.667 10.8008C33.383 10.1142 32.5959 9.78711 31.9081 10.0725L31.6925 10.1619C31.0988 10.4082 30.3977 10.2102 30.0571 9.66496C29.8929 9.40112 29.7222 9.14242 29.5418 8.88935C29.1689 8.36704 29.2538 7.64453 29.7074 7.19088L29.873 7.02787C30.3994 6.50152 30.3994 5.64932 29.873 5.12432C29.3467 4.59798 28.4945 4.59798 27.9695 5.12432L27.8065 5.28996C27.3528 5.74362 26.6303 5.83112 26.108 5.45823C25.8549 5.27785 25.5963 5.10451 25.3324 4.94028C24.7872 4.60105 24.5891 3.89857 24.8355 3.30491L24.9249 3.09195C25.2089 2.40541 24.8831 1.61576 24.1966 1.33038C23.5101 1.04634 22.723 1.37213 22.4377 2.05867L22.3483 2.26901C22.1033 2.85997 21.4716 3.21623 20.847 3.07354C20.5454 3.00489 20.2403 2.94456 19.932 2.89476C19.2993 2.7938 18.8462 2.22099 18.8462 1.57752V1.34615C18.8462 0.603077 18.2431 0 17.5 0ZM17.5 6.73077C22.9905 6.73077 27.5135 10.8431 28.1772 16.1538H19.8268C19.591 15.7453 19.2518 15.4058 18.8435 15.1696C18.4351 14.9333 17.9718 14.8085 17.5 14.8077C17.4991 14.8077 17.4982 14.8077 17.4974 14.8077L13.3222 7.57212C14.6071 7.0306 16.0182 6.73077 17.5 6.73077ZM10.998 8.92879L15.1705 16.1538C14.9335 16.5629 14.8083 17.0272 14.8077 17.5C14.8093 17.971 14.9344 18.4334 15.1705 18.8409L10.9953 26.0686C8.40865 24.1015 6.73077 21.0001 6.73077 17.5C6.73077 13.9986 8.40961 10.8957 10.998 8.92879ZM19.8295 18.8462H28.1772C27.5135 24.1569 22.9905 28.2692 17.5 28.2692C16.0182 28.2692 14.6071 27.9694 13.3222 27.4279L17.4974 20.1923C17.4982 20.1923 17.4991 20.1923 17.5 20.1923C17.9722 20.1919 18.4361 20.0674 18.8449 19.8311C19.2538 19.5948 19.5934 19.2551 19.8295 18.8462Z" Stretch="Fill" Canvas.Left="7" Canvas.Top="6.667" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        </Canvas>
+        <Canvas Grid.Row="0" Width="195" Height="50" HorizontalAlignment="Left" Margin="52,0,0,0">
+            <Rectangle Width="200" Height="40" Canvas.Bottom="2" Canvas.Right="-7" RadiusX="10" RadiusY="10" Fill="Black" Opacity="1"/>
+            <Rectangle Width="200" Height="40" Canvas.Bottom="2" Canvas.Right="-4" RadiusX="10" RadiusY="10" Fill="#FF191919" Opacity="1" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Top="5" />
+            <Label Content="Game Status: Pre-Lobby" Width="195" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White" Background="#02FFFFFF" FontFamily="Microsoft YaHei UI" FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        </Canvas>
+        <Canvas Grid.Row="0" Width="125" Height="50" HorizontalAlignment="Left" Margin="260,0,0,0">
+            <Rectangle Width="128" Height="40" Canvas.Bottom="2" Canvas.Right="-3" RadiusX="10" RadiusY="10" Fill="Black" Opacity="1" HorizontalAlignment="Left" Canvas.Left="-2" Canvas.Top="8" VerticalAlignment="Center"/>
+            <Rectangle Width="124" Height="40" Canvas.Bottom="2" Canvas.Right="-3" RadiusX="10" RadiusY="10" Fill="#FF191919" Opacity="1" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Top="5" Canvas.Left="-2" />
+            <Label Content="Loading: 0/10" Width="122" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White" Background="#02FFFFFF" FontFamily="Microsoft YaHei UI" FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        </Canvas>
+
+        <!--Separator-->
+        <Border Grid.Row="1" Background="White" Height="3" Margin="10,0,10,0" VerticalAlignment="Center" CornerRadius="2" />
+
+        <Grid Row="2">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Border Grid.Column="1" Background="White" Width="5" CornerRadius="2" Margin="0,20,0,20" />
+                <Grid Column="0">
+                    <StackPanel VerticalAlignment="Center" >
+                        <Border CornerRadius="15" Height="110" Background="#FF191919">
+                            <Border.Effect>
+                                <DropShadowEffect RenderingBias="Quality" />
+                            </Border.Effect>
+                            <Canvas>
+                                <Border Width="90" Name="LeftPlayer1HeadshotIcon" Height="90" Canvas.Left="12" CornerRadius="10" Canvas.Top="10" HorizontalAlignment="Left" VerticalAlignment="Center">
+                                    <Border.Background>
+                                        <ImageBrush ImageSource="https://i.imgur.com/29RLOXo.png" Stretch="UniformToFill"/>
+                                    </Border.Background>
+                                    <Border Background="Black" Margin="0,66,55,0" CornerRadius="0,0,0,10">
+                                        <Label Content="999" Name="LeftPlayer1Level" Margin="0,-2,0,2" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="11"/>
+                                    </Border>
+                                </Border>
+                                <Label Canvas.Left="102" Canvas.Top="4" Name="LeftPlayer1AgentName" Content="Jett" Foreground="White" FontFamily="Microsoft JhengHei UI" FontWeight="Bold" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                                <Label Canvas.Left="102" Canvas.Top="29" Name="LeftPlayer1PlayerName" Content="Cinnamon Toast#Krunc" Foreground="#FFE600FF" FontFamily="Microsoft JhengHei UI" FontWeight="Bold" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                                <Border Width="110" Height="35" Name="LeftPlayer1VandalSkin" Background="#FF232323" Canvas.Left="102" Canvas.Top="67" HorizontalAlignment="Center" VerticalAlignment="Top" CornerRadius="8" >
+                                    <Border.Effect>
+                                        <DropShadowEffect RenderingBias="Quality"/>
+                                    </Border.Effect>
+                                </Border>
+                                <Border Width="110" Height="35" Name="LeftPlayer1PhantomSkin" Background="#FF232323" Canvas.Left="223" Canvas.Top="67" HorizontalAlignment="Left" VerticalAlignment="Center" CornerRadius="8" >
+                                    <Border.Effect>
+                                        <DropShadowEffect RenderingBias="Quality"/>
+                                    </Border.Effect>
+                                </Border>
+                                <Image Name="LeftPlayer1CurrentRank" Width="82" Height="75" Canvas.Right="12" Canvas.Top="11" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" HorizontalAlignment="Left"/>
+                                <Image Name="LeftPlayer1ActOne" Width="25" Height="25" Canvas.Right="115" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" />
+                                <Image Name="LeftPlayer1ActTwo" Width="25" Height="25" Canvas.Right="140" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" />
+                                <Image Name="LeftPlayer1ActThree" Width="25" Height="25" Canvas.Right="165" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" />
+                                <Border Background="GreenYellow" Name="LeftPlayer1RankRatingProgress" BorderThickness="2" BorderBrush="Transparent" Width="100" Height="8" Canvas.Left="496" Canvas.Top="92" CornerRadius="2"/>
+                                <Border Background="Transparent" BorderThickness="2" BorderBrush="#FF404040" Width="100" Height="8" Canvas.Left="496" Canvas.Top="92" CornerRadius="2"/>
+                                <Border Background="GreenYellow" Name="LeftPlayer1ThirdGameRankRating" Width="25" Height="25" Canvas.Right="165"  Canvas.Top="7" CornerRadius="100">
+                                    <Label Foreground="Black" Content="+50" FontSize="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold"/>
+                                </Border>
+                                <Border Background="GreenYellow" Name="LeftPlayer1SecondGameRankRating" Width="25" Height="25" Canvas.Right="140"  Canvas.Top="7" CornerRadius="100">
+                                    <Label Foreground="Black" Content="+50" FontSize="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold"/>
+                                </Border>
+                                <Border Background="GreenYellow" Name="LeftPlayer1FirstGameRankRating" Width="25" Height="25" Canvas.Right="115"  Canvas.Top="7" CornerRadius="100">
+                                    <Label Foreground="Black" Content="+50" FontSize="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold"/>
+                                </Border>
+                            </Canvas>
+                        </Border>
+                        <Canvas Height="10"/>
+                        <Border CornerRadius="15" Height="110" Background="#FF191919">
+                            <Border.Effect>
+                                <DropShadowEffect RenderingBias="Quality" />
+                            </Border.Effect>
+                            <Canvas>
+                                <Border Width="90" Name="LeftPlayer2HeadshotIcon" Height="90" Canvas.Left="12" CornerRadius="10" Canvas.Top="10" HorizontalAlignment="Left" VerticalAlignment="Center">
+                                    <Border.Background>
+                                        <ImageBrush ImageSource="https://i.imgur.com/29RLOXo.png" Stretch="UniformToFill"/>
+                                    </Border.Background>
+                                    <Border Background="Black" Margin="0,66,55,0" CornerRadius="0,0,0,10">
+                                        <Label Content="999" Name="LeftPlayer2Level" Margin="0,-2,0,2" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="11"/>
+                                    </Border>
+                                </Border>
+                                <Label Canvas.Left="102" Canvas.Top="4" Name="LeftPlayer2AgentName" Content="Jett" Foreground="White" FontFamily="Microsoft JhengHei UI" FontWeight="Bold" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                                <Label Canvas.Left="102" Canvas.Top="29" Name="LeftPlayer2PlayerName" Content="Cinnamon Toast#Krunc" Foreground="#FFE600FF" FontFamily="Microsoft JhengHei UI" FontWeight="Bold" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                                <Border Width="110" Height="35" Name="LeftPlayer2VandalSkin" Background="#FF232323" Canvas.Left="102" Canvas.Top="67" HorizontalAlignment="Center" VerticalAlignment="Top" CornerRadius="8" >
+                                    <Border.Effect>
+                                        <DropShadowEffect RenderingBias="Quality"/>
+                                    </Border.Effect>
+                                </Border>
+                                <Border Width="110" Height="35" Name="LeftPlayer2PhantomSkin" Background="#FF232323" Canvas.Left="223" Canvas.Top="67" HorizontalAlignment="Left" VerticalAlignment="Center" CornerRadius="8" >
+                                    <Border.Effect>
+                                        <DropShadowEffect RenderingBias="Quality"/>
+                                    </Border.Effect>
+                                </Border>
+                                <Image Name="LeftPlayer2CurrentRank" Width="82" Height="75" Canvas.Right="12" Canvas.Top="11" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" HorizontalAlignment="Left"/>
+                                <Image Name="LeftPlayer2ActOne" Width="25" Height="25" Canvas.Right="115" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" />
+                                <Image Name="LeftPlayer2ActTwo" Width="25" Height="25" Canvas.Right="140" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" />
+                                <Image Name="LeftPlayer2ActThree" Width="25" Height="25" Canvas.Right="165" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" />
+                                <Border Background="GreenYellow" Name="LeftPlayer2RankRatingProgress" BorderThickness="2" BorderBrush="Transparent" Width="100" Height="8" Canvas.Left="496" Canvas.Top="92" CornerRadius="2"/>
+                                <Border Background="Transparent" BorderThickness="2" BorderBrush="#FF404040" Width="100" Height="8" Canvas.Left="496" Canvas.Top="92" CornerRadius="2"/>
+                                <Border Background="GreenYellow" Name="LeftPlayer2ThirdGameRankRating" Width="25" Height="25" Canvas.Right="165"  Canvas.Top="7" CornerRadius="100">
+                                    <Label Foreground="Black" Content="+50" FontSize="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold"/>
+                                </Border>
+                                <Border Background="GreenYellow" Name="LeftPlayer2SecondGameRankRating" Width="25" Height="25" Canvas.Right="140"  Canvas.Top="7" CornerRadius="100">
+                                    <Label Foreground="Black" Content="+50" FontSize="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold"/>
+                                </Border>
+                                <Border Background="GreenYellow" Name="LeftPlayer2FirstGameRankRating" Width="25" Height="25" Canvas.Right="115"  Canvas.Top="7" CornerRadius="100">
+                                    <Label Foreground="Black" Content="+50" FontSize="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold"/>
+                                </Border>
+                            </Canvas>
+                        </Border>
+                        <Canvas Height="10"/>
+                        <Border CornerRadius="15" Height="110" Background="#FF191919">
+                            <Border.Effect>
+                                <DropShadowEffect RenderingBias="Quality" />
+                            </Border.Effect>
+                            <Canvas>
+                                <Border Width="90" Name="LeftPlayer3HeadshotIcon" Height="90" Canvas.Left="12" CornerRadius="10" Canvas.Top="10" HorizontalAlignment="Left" VerticalAlignment="Center">
+                                    <Border.Background>
+                                        <ImageBrush ImageSource="https://i.imgur.com/29RLOXo.png" Stretch="UniformToFill"/>
+                                    </Border.Background>
+                                    <Border Background="Black" Margin="0,66,55,0" CornerRadius="0,0,0,10">
+                                        <Label Content="999" Name="LeftPlayer3Level" Margin="0,-2,0,2" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="11"/>
+                                    </Border>
+                                </Border>
+                                <Label Canvas.Left="102" Canvas.Top="4" Name="LeftPlayer3AgentName" Content="Jett" Foreground="White" FontFamily="Microsoft JhengHei UI" FontWeight="Bold" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                                <Label Canvas.Left="102" Canvas.Top="29" Name="LeftPlayer3PlayerName" Content="Cinnamon Toast#Krunc" Foreground="#FFE600FF" FontFamily="Microsoft JhengHei UI" FontWeight="Bold" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                                <Border Width="110" Height="35" Name="LeftPlayer3VandalSkin" Background="#FF232323" Canvas.Left="102" Canvas.Top="67" HorizontalAlignment="Center" VerticalAlignment="Top" CornerRadius="8" >
+                                    <Border.Effect>
+                                        <DropShadowEffect RenderingBias="Quality"/>
+                                    </Border.Effect>
+                                </Border>
+                                <Border Width="110" Height="35" Name="LeftPlayer3PhantomSkin" Background="#FF232323" Canvas.Left="223" Canvas.Top="67" HorizontalAlignment="Left" VerticalAlignment="Center" CornerRadius="8" >
+                                    <Border.Effect>
+                                        <DropShadowEffect RenderingBias="Quality"/>
+                                    </Border.Effect>
+                                </Border>
+                                <Image Name="LeftPlayer3CurrentRank" Width="82" Height="75" Canvas.Right="12" Canvas.Top="11" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" HorizontalAlignment="Left"/>
+                                <Image Name="LeftPlayer3ActOne" Width="25" Height="25" Canvas.Right="115" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" />
+                                <Image Name="LeftPlayer3ActTwo" Width="25" Height="25" Canvas.Right="140" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" />
+                                <Image Name="LeftPlayer3ActThree" Width="25" Height="25" Canvas.Right="165" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" />
+                                <Border Background="GreenYellow" Name="LeftPlayer3RankRatingProgress" BorderThickness="2" BorderBrush="Transparent" Width="100" Height="8" Canvas.Left="496" Canvas.Top="92" CornerRadius="2"/>
+                                <Border Background="Transparent" BorderThickness="2" BorderBrush="#FF404040" Width="100" Height="8" Canvas.Left="496" Canvas.Top="92" CornerRadius="2"/>
+                                <Border Background="GreenYellow" Name="LeftPlayer3ThirdGameRankRating" Width="25" Height="25" Canvas.Right="165"  Canvas.Top="7" CornerRadius="100">
+                                    <Label Foreground="Black" Content="+50" FontSize="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold"/>
+                                </Border>
+                                <Border Background="GreenYellow" Name="LeftPlayer3SecondGameRankRating" Width="25" Height="25" Canvas.Right="140"  Canvas.Top="7" CornerRadius="100">
+                                    <Label Foreground="Black" Content="+50" FontSize="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold"/>
+                                </Border>
+                                <Border Background="GreenYellow" Name="LeftPlayer3FirstGameRankRating" Width="25" Height="25" Canvas.Right="115"  Canvas.Top="7" CornerRadius="100">
+                                    <Label Foreground="Black" Content="+50" FontSize="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold"/>
+                                </Border>
+                            </Canvas>
+                        </Border>
+                        <Canvas Height="10"/>
+                        <Border CornerRadius="15" Height="110" Background="#FF191919">
+                            <Border.Effect>
+                                <DropShadowEffect RenderingBias="Quality" />
+                            </Border.Effect>
+                            <Canvas>
+                                <Border Width="90" Name="LeftPlayer4HeadshotIcon" Height="90" Canvas.Left="12" CornerRadius="10" Canvas.Top="10" HorizontalAlignment="Left" VerticalAlignment="Center">
+                                    <Border.Background>
+                                        <ImageBrush ImageSource="https://i.imgur.com/29RLOXo.png" Stretch="UniformToFill"/>
+                                    </Border.Background>
+                                    <Border Background="Black" Margin="0,66,55,0" CornerRadius="0,0,0,10">
+                                        <Label Content="999" Name="LeftPlayer4Level" Margin="0,-2,0,2" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="11"/>
+                                    </Border>
+                                </Border>
+                                <Label Canvas.Left="102" Canvas.Top="4" Name="LeftPlayer4AgentName" Content="Jett" Foreground="White" FontFamily="Microsoft JhengHei UI" FontWeight="Bold" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                                <Label Canvas.Left="102" Canvas.Top="29" Name="LeftPlayer4PlayerName" Content="Cinnamon Toast#Krunc" Foreground="#FFE600FF" FontFamily="Microsoft JhengHei UI" FontWeight="Bold" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                                <Border Width="110" Height="35" Name="LeftPlayer4VandalSkin" Background="#FF232323" Canvas.Left="102" Canvas.Top="67" HorizontalAlignment="Center" VerticalAlignment="Top" CornerRadius="8" >
+                                    <Border.Effect>
+                                        <DropShadowEffect RenderingBias="Quality"/>
+                                    </Border.Effect>
+                                </Border>
+                                <Border Width="110" Height="35" Name="LeftPlayer4PhantomSkin" Background="#FF232323" Canvas.Left="223" Canvas.Top="67" HorizontalAlignment="Left" VerticalAlignment="Center" CornerRadius="8" >
+                                    <Border.Effect>
+                                        <DropShadowEffect RenderingBias="Quality"/>
+                                    </Border.Effect>
+                                </Border>
+                                <Image Name="LeftPlayer4CurrentRank" Width="82" Height="75" Canvas.Right="12" Canvas.Top="11" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" HorizontalAlignment="Left"/>
+                                <Image Name="LeftPlayer4ActOne" Width="25" Height="25" Canvas.Right="115" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" />
+                                <Image Name="LeftPlayer4ActTwo" Width="25" Height="25" Canvas.Right="140" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" />
+                                <Image Name="LeftPlayer4ActThree" Width="25" Height="25" Canvas.Right="165" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" />
+                                <Border Background="GreenYellow" Name="LeftPlayer4RankRatingProgress" BorderThickness="2" BorderBrush="Transparent" Width="100" Height="8" Canvas.Left="496" Canvas.Top="92" CornerRadius="2"/>
+                                <Border Background="Transparent" BorderThickness="2" BorderBrush="#FF404040" Width="100" Height="8" Canvas.Left="496" Canvas.Top="92" CornerRadius="2"/>
+                                <Border Background="GreenYellow" Name="LeftPlayer4ThirdGameRankRating" Width="25" Height="25" Canvas.Right="165"  Canvas.Top="7" CornerRadius="100">
+                                    <Label Foreground="Black" Content="+50" FontSize="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold"/>
+                                </Border>
+                                <Border Background="GreenYellow" Name="LeftPlayer4SecondGameRankRating" Width="25" Height="25" Canvas.Right="140"  Canvas.Top="7" CornerRadius="100">
+                                    <Label Foreground="Black" Content="+50" FontSize="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold"/>
+                                </Border>
+                                <Border Background="GreenYellow" Name="LeftPlayer4FirstGameRankRating" Width="25" Height="25" Canvas.Right="115"  Canvas.Top="7" CornerRadius="100">
+                                    <Label Foreground="Black" Content="+50" FontSize="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold"/>
+                                </Border>
+                            </Canvas>
+                        </Border>
+                        <Canvas Height="10"/>
+                        <Border CornerRadius="15" Height="110" Background="#FF191919">
+                            <Border.Effect>
+                                <DropShadowEffect RenderingBias="Quality" />
+                            </Border.Effect>
+                            <Canvas>
+                                <Border Width="90" Name="LeftPlayer5HeadshotIcon" Height="90" Canvas.Left="12" CornerRadius="10" Canvas.Top="10" HorizontalAlignment="Left" VerticalAlignment="Center">
+                                    <Border.Background>
+                                        <ImageBrush ImageSource="https://i.imgur.com/29RLOXo.png" Stretch="UniformToFill"/>
+                                    </Border.Background>
+                                    <Border Background="Black" Margin="0,66,55,0" CornerRadius="0,0,0,10">
+                                        <Label Content="999" Name="LeftPlayer5Level" Margin="0,-2,0,2" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="11"/>
+                                    </Border>
+                                </Border>
+                                <Label Canvas.Left="102" Canvas.Top="4" Name="LeftPlayer5AgentName" Content="Jett" Foreground="White" FontFamily="Microsoft JhengHei UI" FontWeight="Bold" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                                <Label Canvas.Left="102" Canvas.Top="29" Name="LeftPlayer5PlayerName" Content="Cinnamon Toast#Krunc" Foreground="#FFE600FF" FontFamily="Microsoft JhengHei UI" FontWeight="Bold" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                                <Border Width="110" Height="35" Name="LeftPlayer5VandalSkin" Background="#FF232323" Canvas.Left="102" Canvas.Top="67" HorizontalAlignment="Center" VerticalAlignment="Top" CornerRadius="8" >
+                                    <Border.Effect>
+                                        <DropShadowEffect RenderingBias="Quality"/>
+                                    </Border.Effect>
+                                </Border>
+                                <Border Width="110" Height="35" Name="LeftPlayer5PhantomSkin" Background="#FF232323" Canvas.Left="223" Canvas.Top="67" HorizontalAlignment="Left" VerticalAlignment="Center" CornerRadius="8" >
+                                    <Border.Effect>
+                                        <DropShadowEffect RenderingBias="Quality"/>
+                                    </Border.Effect>
+                                </Border>
+                                <Image Name="LeftPlayer5CurrentRank" Width="82" Height="75" Canvas.Right="12" Canvas.Top="11" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" HorizontalAlignment="Left"/>
+                                <Image Name="LeftPlayer5ActOne" Width="25" Height="25" Canvas.Right="115" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" />
+                                <Image Name="LeftPlayer5ActTwo" Width="25" Height="25" Canvas.Right="140" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" />
+                                <Image Name="LeftPlayer5ActThree" Width="25" Height="25" Canvas.Right="165" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" />
+                                <Border Background="GreenYellow" Name="LeftPlayer5RankRatingProgress" BorderThickness="2" BorderBrush="Transparent" Width="100" Height="8" Canvas.Left="496" Canvas.Top="92" CornerRadius="2"/>
+                                <Border Background="Transparent" BorderThickness="2" BorderBrush="#FF404040" Width="100" Height="8" Canvas.Left="496" Canvas.Top="92" CornerRadius="2"/>
+                                <Border Background="GreenYellow" Name="LeftPlayer5ThirdGameRankRating" Width="25" Height="25" Canvas.Right="165"  Canvas.Top="7" CornerRadius="100">
+                                    <Label Foreground="Black" Content="+50" FontSize="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold"/>
+                                </Border>
+                                <Border Background="GreenYellow" Name="LeftPlayer5SecondGameRankRating" Width="25" Height="25" Canvas.Right="140"  Canvas.Top="7" CornerRadius="100">
+                                    <Label Foreground="Black" Content="+50" FontSize="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold"/>
+                                </Border>
+                                <Border Background="GreenYellow" Name="LeftPlayer5FirstGameRankRating" Width="25" Height="25" Canvas.Right="115"  Canvas.Top="7" CornerRadius="100">
+                                    <Label Foreground="Black" Content="+50" FontSize="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold"/>
+                                </Border>
+                            </Canvas>
+                        </Border>
+                        <Canvas Height="10"/>
+                    </StackPanel>
+                </Grid>
+                <Grid Column="2">
+                    <StackPanel VerticalAlignment="Center" >
+                        <Border CornerRadius="15" Height="110" Background="#FF191919">
+                            <Border.Effect>
+                                <DropShadowEffect RenderingBias="Quality" />
+                            </Border.Effect>
+                            <Canvas>
+                                <Border Width="90" Name="RightPlayer1HeadshotIcon" Height="90" Canvas.Left="12" CornerRadius="10" Canvas.Top="10" HorizontalAlignment="Left" VerticalAlignment="Center">
+                                    <Border.Background>
+                                        <ImageBrush ImageSource="https://i.imgur.com/29RLOXo.png" Stretch="UniformToFill"/>
+                                    </Border.Background>
+                                    <Border Background="Black" Margin="0,66,55,0" CornerRadius="0,0,0,10">
+                                        <Label Content="999" Name="RightPlayer1Level" Margin="0,-2,0,2" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="11"/>
+                                    </Border>
+                                </Border>
+                                <Label Canvas.Left="102" Canvas.Top="4" Name="RightPlayer1AgentName" Content="Jett" Foreground="White" FontFamily="Microsoft JhengHei UI" FontWeight="Bold" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                                <Label Canvas.Left="102" Canvas.Top="29" Name="RightPlayer1PlayerName" Content="Cinnamon Toast#Krunc" Foreground="#FFE600FF" FontFamily="Microsoft JhengHei UI" FontWeight="Bold" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                                <Border Width="110" Height="35" Name="RightPlayer1VandalSkin" Background="#FF232323" Canvas.Left="102" Canvas.Top="67" HorizontalAlignment="Center" VerticalAlignment="Top" CornerRadius="8" >
+                                    <Border.Effect>
+                                        <DropShadowEffect RenderingBias="Quality"/>
+                                    </Border.Effect>
+                                </Border>
+                                <Border Width="110" Height="35" Name="RightPlayer1PhantomSkin" Background="#FF232323" Canvas.Left="223" Canvas.Top="67" HorizontalAlignment="Left" VerticalAlignment="Center" CornerRadius="8" >
+                                    <Border.Effect>
+                                        <DropShadowEffect RenderingBias="Quality"/>
+                                    </Border.Effect>
+                                </Border>
+                                <Image Name="RightPlayer1CurrentRank" Width="82" Height="75" Canvas.Right="12" Canvas.Top="11" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" HorizontalAlignment="Left"/>
+                                <Image Name="RightPlayer1ActOne" Width="25" Height="25" Canvas.Right="115" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" />
+                                <Image Name="RightPlayer1ActTwo" Width="25" Height="25" Canvas.Right="140" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" />
+                                <Image Name="RightPlayer1ActThree" Width="25" Height="25" Canvas.Right="165" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" />
+                                <Border Background="GreenYellow" Name="RightPlayer1RankRatingProgress" BorderThickness="2" BorderBrush="Transparent" Width="100" Height="8" Canvas.Left="496" Canvas.Top="92" CornerRadius="2"/>
+                                <Border Background="Transparent" BorderThickness="2" BorderBrush="#FF404040" Width="100" Height="8" Canvas.Left="496" Canvas.Top="92" CornerRadius="2"/>
+                                <Border Background="GreenYellow" Name="RightPlayer1ThirdGameRankRating" Width="25" Height="25" Canvas.Right="165"  Canvas.Top="7" CornerRadius="100">
+                                    <Label Foreground="Black" Content="+50" FontSize="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold"/>
+                                </Border>
+                                <Border Background="GreenYellow" Name="RightPlayer1SecondGameRankRating" Width="25" Height="25" Canvas.Right="140"  Canvas.Top="7" CornerRadius="100">
+                                    <Label Foreground="Black" Content="+50" FontSize="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold"/>
+                                </Border>
+                                <Border Background="GreenYellow" Name="RightPlayer1FirstGameRankRating" Width="25" Height="25" Canvas.Right="115"  Canvas.Top="7" CornerRadius="100">
+                                    <Label Foreground="Black" Content="+50" FontSize="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold"/>
+                                </Border>
+                            </Canvas>
+                        </Border>
+                        <Canvas Height="10"/>
+                        <Border CornerRadius="15" Height="110" Background="#FF191919">
+                            <Border.Effect>
+                                <DropShadowEffect RenderingBias="Quality" />
+                            </Border.Effect>
+                            <Canvas>
+                                <Border Width="90" Name="RightPlayer2HeadshotIcon" Height="90" Canvas.Left="12" CornerRadius="10" Canvas.Top="10" HorizontalAlignment="Left" VerticalAlignment="Center">
+                                    <Border.Background>
+                                        <ImageBrush ImageSource="https://i.imgur.com/29RLOXo.png" Stretch="UniformToFill"/>
+                                    </Border.Background>
+                                    <Border Background="Black" Margin="0,66,55,0" CornerRadius="0,0,0,10">
+                                        <Label Content="999" Name="RightPlayer2Level" Margin="0,-2,0,2" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="11"/>
+                                    </Border>
+                                </Border>
+                                <Label Canvas.Left="102" Canvas.Top="4" Name="RightPlayer2AgentName" Content="Jett" Foreground="White" FontFamily="Microsoft JhengHei UI" FontWeight="Bold" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                                <Label Canvas.Left="102" Canvas.Top="29" Name="RightPlayer2PlayerName" Content="Cinnamon Toast#Krunc" Foreground="#FFE600FF" FontFamily="Microsoft JhengHei UI" FontWeight="Bold" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                                <Border Width="110" Height="35" Name="RightPlayer2VandalSkin" Background="#FF232323" Canvas.Left="102" Canvas.Top="67" HorizontalAlignment="Center" VerticalAlignment="Top" CornerRadius="8" >
+                                    <Border.Effect>
+                                        <DropShadowEffect RenderingBias="Quality"/>
+                                    </Border.Effect>
+                                </Border>
+                                <Border Width="110" Height="35" Name="RightPlayer2PhantomSkin" Background="#FF232323" Canvas.Left="223" Canvas.Top="67" HorizontalAlignment="Left" VerticalAlignment="Center" CornerRadius="8" >
+                                    <Border.Effect>
+                                        <DropShadowEffect RenderingBias="Quality"/>
+                                    </Border.Effect>
+                                </Border>
+                                <Image Name="RightPlayer2CurrentRank" Width="82" Height="75" Canvas.Right="12" Canvas.Top="11" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" HorizontalAlignment="Left"/>
+                                <Image Name="RightPlayer2ActOne" Width="25" Height="25" Canvas.Right="115" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" />
+                                <Image Name="RightPlayer2ActTwo" Width="25" Height="25" Canvas.Right="140" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" />
+                                <Image Name="RightPlayer2ActThree" Width="25" Height="25" Canvas.Right="165" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" />
+                                <Border Background="GreenYellow" Name="RightPlayer2RankRatingProgress" BorderThickness="2" BorderBrush="Transparent" Width="100" Height="8" Canvas.Left="496" Canvas.Top="92" CornerRadius="2"/>
+                                <Border Background="Transparent" BorderThickness="2" BorderBrush="#FF404040" Width="100" Height="8" Canvas.Left="496" Canvas.Top="92" CornerRadius="2"/>
+                                <Border Background="GreenYellow" Name="RightPlayer2ThirdGameRankRating" Width="25" Height="25" Canvas.Right="165"  Canvas.Top="7" CornerRadius="100">
+                                    <Label Foreground="Black" Content="+50" FontSize="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold"/>
+                                </Border>
+                                <Border Background="GreenYellow" Name="RightPlayer2SecondGameRankRating" Width="25" Height="25" Canvas.Right="140"  Canvas.Top="7" CornerRadius="100">
+                                    <Label Foreground="Black" Content="+50" FontSize="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold"/>
+                                </Border>
+                                <Border Background="GreenYellow" Name="RightPlayer2FirstGameRankRating" Width="25" Height="25" Canvas.Right="115"  Canvas.Top="7" CornerRadius="100">
+                                    <Label Foreground="Black" Content="+50" FontSize="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold"/>
+                                </Border>
+                            </Canvas>
+                        </Border>
+                        <Canvas Height="10"/>
+                        <Border CornerRadius="15" Height="110" Background="#FF191919">
+                            <Border.Effect>
+                                <DropShadowEffect RenderingBias="Quality" />
+                            </Border.Effect>
+                            <Canvas>
+                                <Border Width="90" Name="RightPlayer3HeadshotIcon" Height="90" Canvas.Left="12" CornerRadius="10" Canvas.Top="10" HorizontalAlignment="Left" VerticalAlignment="Center">
+                                    <Border.Background>
+                                        <ImageBrush ImageSource="https://i.imgur.com/29RLOXo.png" Stretch="UniformToFill"/>
+                                    </Border.Background>
+                                    <Border Background="Black" Margin="0,66,55,0" CornerRadius="0,0,0,10">
+                                        <Label Content="999" Name="RightPlayer3Level" Margin="0,-2,0,2" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="11"/>
+                                    </Border>
+                                </Border>
+                                <Label Canvas.Left="102" Canvas.Top="4" Name="RightPlayer3AgentName" Content="Jett" Foreground="White" FontFamily="Microsoft JhengHei UI" FontWeight="Bold" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                                <Label Canvas.Left="102" Canvas.Top="29" Name="RightPlayer3PlayerName" Content="Cinnamon Toast#Krunc" Foreground="#FFE600FF" FontFamily="Microsoft JhengHei UI" FontWeight="Bold" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                                <Border Width="110" Height="35" Name="RightPlayer3VandalSkin" Background="#FF232323" Canvas.Left="102" Canvas.Top="67" HorizontalAlignment="Center" VerticalAlignment="Top" CornerRadius="8" >
+                                    <Border.Effect>
+                                        <DropShadowEffect RenderingBias="Quality"/>
+                                    </Border.Effect>
+                                </Border>
+                                <Border Width="110" Height="35" Name="RightPlayer3PhantomSkin" Background="#FF232323" Canvas.Left="223" Canvas.Top="67" HorizontalAlignment="Left" VerticalAlignment="Center" CornerRadius="8" >
+                                    <Border.Effect>
+                                        <DropShadowEffect RenderingBias="Quality"/>
+                                    </Border.Effect>
+                                </Border>
+                                <Image Name="RightPlayer3CurrentRank" Width="82" Height="75" Canvas.Right="12" Canvas.Top="11" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" HorizontalAlignment="Left"/>
+                                <Image Name="RightPlayer3ActOne" Width="25" Height="25" Canvas.Right="115" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" />
+                                <Image Name="RightPlayer3ActTwo" Width="25" Height="25" Canvas.Right="140" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" />
+                                <Image Name="RightPlayer3ActThree" Width="25" Height="25" Canvas.Right="165" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" />
+                                <Border Background="GreenYellow" Name="RightPlayer3RankRatingProgress" BorderThickness="2" BorderBrush="Transparent" Width="100" Height="8" Canvas.Left="496" Canvas.Top="92" CornerRadius="2"/>
+                                <Border Background="Transparent" BorderThickness="2" BorderBrush="#FF404040" Width="100" Height="8" Canvas.Left="496" Canvas.Top="92" CornerRadius="2"/>
+                                <Border Background="GreenYellow" Name="RightPlayer3ThirdGameRankRating" Width="25" Height="25" Canvas.Right="165"  Canvas.Top="7" CornerRadius="100">
+                                    <Label Foreground="Black" Content="+50" FontSize="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold"/>
+                                </Border>
+                                <Border Background="GreenYellow" Name="RightPlayer3SecondGameRankRating" Width="25" Height="25" Canvas.Right="140"  Canvas.Top="7" CornerRadius="100">
+                                    <Label Foreground="Black" Content="+50" FontSize="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold"/>
+                                </Border>
+                                <Border Background="GreenYellow" Name="RightPlayer3FirstGameRankRating" Width="25" Height="25" Canvas.Right="115"  Canvas.Top="7" CornerRadius="100">
+                                    <Label Foreground="Black" Content="+50" FontSize="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold"/>
+                                </Border>
+                            </Canvas>
+                        </Border>
+                        <Canvas Height="10"/>
+                        <Border CornerRadius="15" Height="110" Background="#FF191919">
+                            <Border.Effect>
+                                <DropShadowEffect RenderingBias="Quality" />
+                            </Border.Effect>
+                            <Canvas>
+                                <Border Width="90" Name="RightPlayer4HeadshotIcon" Height="90" Canvas.Left="12" CornerRadius="10" Canvas.Top="10" HorizontalAlignment="Left" VerticalAlignment="Center">
+                                    <Border.Background>
+                                        <ImageBrush ImageSource="https://i.imgur.com/29RLOXo.png" Stretch="UniformToFill"/>
+                                    </Border.Background>
+                                    <Border Background="Black" Margin="0,66,55,0" CornerRadius="0,0,0,10">
+                                        <Label Content="999" Name="RightPlayer4Level" Margin="0,-2,0,2" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="11"/>
+                                    </Border>
+                                </Border>
+                                <Label Canvas.Left="102" Canvas.Top="4" Name="RightPlayer4AgentName" Content="Jett" Foreground="White" FontFamily="Microsoft JhengHei UI" FontWeight="Bold" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                                <Label Canvas.Left="102" Canvas.Top="29" Name="RightPlayer4PlayerName" Content="Cinnamon Toast#Krunc" Foreground="#FFE600FF" FontFamily="Microsoft JhengHei UI" FontWeight="Bold" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                                <Border Width="110" Height="35" Name="RightPlayer4VandalSkin" Background="#FF232323" Canvas.Left="102" Canvas.Top="67" HorizontalAlignment="Center" VerticalAlignment="Top" CornerRadius="8" >
+                                    <Border.Effect>
+                                        <DropShadowEffect RenderingBias="Quality"/>
+                                    </Border.Effect>
+                                </Border>
+                                <Border Width="110" Height="35" Name="RightPlayer4PhantomSkin" Background="#FF232323" Canvas.Left="223" Canvas.Top="67" HorizontalAlignment="Left" VerticalAlignment="Center" CornerRadius="8" >
+                                    <Border.Effect>
+                                        <DropShadowEffect RenderingBias="Quality"/>
+                                    </Border.Effect>
+                                </Border>
+                                <Image Name="RightPlayer4CurrentRank" Width="82" Height="75" Canvas.Right="12" Canvas.Top="11" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" HorizontalAlignment="Left"/>
+                                <Image Name="RightPlayer4ActOne" Width="25" Height="25" Canvas.Right="115" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" />
+                                <Image Name="RightPlayer4ActTwo" Width="25" Height="25" Canvas.Right="140" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" />
+                                <Image Name="RightPlayer4ActThree" Width="25" Height="25" Canvas.Right="165" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" />
+                                <Border Background="GreenYellow" Name="RightPlayer4RankRatingProgress" BorderThickness="2" BorderBrush="Transparent" Width="100" Height="8" Canvas.Left="496" Canvas.Top="92" CornerRadius="2"/>
+                                <Border Background="Transparent" BorderThickness="2" BorderBrush="#FF404040" Width="100" Height="8" Canvas.Left="496" Canvas.Top="92" CornerRadius="2"/>
+                                <Border Background="GreenYellow" Name="RightPlayer4ThirdGameRankRating" Width="25" Height="25" Canvas.Right="165"  Canvas.Top="7" CornerRadius="100">
+                                    <Label Foreground="Black" Content="+50" FontSize="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold"/>
+                                </Border>
+                                <Border Background="GreenYellow" Name="RightPlayer4SecondGameRankRating" Width="25" Height="25" Canvas.Right="140"  Canvas.Top="7" CornerRadius="100">
+                                    <Label Foreground="Black" Content="+50" FontSize="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold"/>
+                                </Border>
+                                <Border Background="GreenYellow" Name="RightPlayer4FirstGameRankRating" Width="25" Height="25" Canvas.Right="115"  Canvas.Top="7" CornerRadius="100">
+                                    <Label Foreground="Black" Content="+50" FontSize="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold"/>
+                                </Border>
+                            </Canvas>
+                        </Border>
+                        <Canvas Height="10"/>
+                        <Border CornerRadius="15" Height="110" Background="#FF191919">
+                            <Border.Effect>
+                                <DropShadowEffect RenderingBias="Quality" />
+                            </Border.Effect>
+                            <Canvas>
+                                <Border Width="90" Name="RightPlayer5HeadshotIcon" Height="90" Canvas.Left="12" CornerRadius="10" Canvas.Top="10" HorizontalAlignment="Left" VerticalAlignment="Center">
+                                    <Border.Background>
+                                        <ImageBrush ImageSource="https://i.imgur.com/29RLOXo.png" Stretch="UniformToFill"/>
+                                    </Border.Background>
+                                    <Border Background="Black" Margin="0,66,55,0" CornerRadius="0,0,0,10">
+                                        <Label Content="999" Name="RightPlayer5Level" Margin="0,-2,0,2" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="11"/>
+                                    </Border>
+                                </Border>
+                                <Label Canvas.Left="102" Canvas.Top="4" Name="RightPlayer5AgentName" Content="Jett" Foreground="White" FontFamily="Microsoft JhengHei UI" FontWeight="Bold" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                                <Label Canvas.Left="102" Canvas.Top="29" Name="RightPlayer5PlayerName" Content="Cinnamon Toast#Krunc" Foreground="#FFE600FF" FontFamily="Microsoft JhengHei UI" FontWeight="Bold" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                                <Border Width="110" Height="35" Name="RightPlayer5VandalSkin" Background="#FF232323" Canvas.Left="102" Canvas.Top="67" HorizontalAlignment="Center" VerticalAlignment="Top" CornerRadius="8" >
+                                    <Border.Effect>
+                                        <DropShadowEffect RenderingBias="Quality"/>
+                                    </Border.Effect>
+                                </Border>
+                                <Border Width="110" Height="35" Name="RightPlayer5PhantomSkin" Background="#FF232323" Canvas.Left="223" Canvas.Top="67" HorizontalAlignment="Left" VerticalAlignment="Center" CornerRadius="8" >
+                                    <Border.Effect>
+                                        <DropShadowEffect RenderingBias="Quality"/>
+                                    </Border.Effect>
+                                </Border>
+                                <Image Name="RightPlayer5CurrentRank" Width="82" Height="75" Canvas.Right="12" Canvas.Top="11" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" HorizontalAlignment="Left"/>
+                                <Image Name="RightPlayer5ActOne" Width="25" Height="25" Canvas.Right="115" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" />
+                                <Image Name="RightPlayer5ActTwo" Width="25" Height="25" Canvas.Right="140" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" />
+                                <Image Name="RightPlayer5ActThree" Width="25" Height="25" Canvas.Right="165" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" />
+                                <Border Background="GreenYellow" Name="RightPlayer5RankRatingProgress" BorderThickness="2" BorderBrush="Transparent" Width="100" Height="8" Canvas.Left="496" Canvas.Top="92" CornerRadius="2"/>
+                                <Border Background="Transparent" BorderThickness="2" BorderBrush="#FF404040" Width="100" Height="8" Canvas.Left="496" Canvas.Top="92" CornerRadius="2"/>
+                                <Border Background="GreenYellow" Name="RightPlayer5ThirdGameRankRating" Width="25" Height="25" Canvas.Right="165"  Canvas.Top="7" CornerRadius="100">
+                                    <Label Foreground="Black" Content="+50" FontSize="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold"/>
+                                </Border>
+                                <Border Background="GreenYellow" Name="RightPlayer5SecondGameRankRating" Width="25" Height="25" Canvas.Right="140"  Canvas.Top="7" CornerRadius="100">
+                                    <Label Foreground="Black" Content="+50" FontSize="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold"/>
+                                </Border>
+                                <Border Background="GreenYellow" Name="RightPlayer5FirstGameRankRating" Width="25" Height="25" Canvas.Right="115"  Canvas.Top="7" CornerRadius="100">
+                                    <Label Foreground="Black" Content="+50" FontSize="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold"/>
+                                </Border>
+                            </Canvas>
+                        </Border>
+                        <Canvas Height="10"/>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+
+        </Grid>
 
     </Grid>
 </Window>
