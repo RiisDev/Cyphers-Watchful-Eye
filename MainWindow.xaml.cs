@@ -1,7 +1,9 @@
 ﻿using System.Diagnostics;
 using System.IO;
+using System.Text.Json;
 using System.Windows;
 using CyphersWatchfulEye.InternalLogic;
+using CyphersWatchfulEye.ValorantAPI.LogManager;
 using CyphersWatchfulEye.ValorantAPI.Methods;
 using CyphersWatchfulEye.ValorantAPI.Services;
 
@@ -60,35 +62,82 @@ namespace CyphersWatchfulEye
             NetHandler net = new(valorantClient);
             LogManager valorantManager = new(net);
 
-            valorantManager.OnQueueChanged += (data) => {
+            valorantManager.Events.Queue.OnQueueChanged += (data) =>
+            {
                 Debug.WriteLine($"OnQueueChanged: {data}");
             };
-            valorantManager.OnEnteredQueue += (data) => {
+            valorantManager.Events.Queue.OnEnteredQueue += (data) =>
+            {
                 Debug.WriteLine($"OnEnteredQueue: {data}");
             };
-            valorantManager.OnLeftQueue += (data) => {
+            valorantManager.Events.Queue.OnCustomGameLobbyCreated += (data) =>
+            {
+                Debug.WriteLine($"OnCustomGameLobbyCreated: {JsonSerializer.Serialize(data)}");
+            };
+            valorantManager.Events.Queue.OnLeftQueue += (data) =>
+            {
                 Debug.WriteLine($"OnLeftQueue: {data}");
             };
-            valorantManager.OnPreGamePlayerLoaded += (data) => {
-                Debug.WriteLine($"OnPreGamePlayerLoaded: {data}");
+
+            valorantManager.Events.PreGame.OnAgentLockedIn += (data) =>
+            {
+                Debug.WriteLine($"OnAgentLockedIn: {data}");
             };
-            valorantManager.OnPreGameMatchLoaded += (data) => {
+            valorantManager.Events.PreGame.OnPreGameMatchLoaded += (data) =>
+            {
                 Debug.WriteLine($"OnPreGameMatchLoaded: {data}");
             };
-            valorantManager.OnAgentLocked += (data) => {
-                Debug.WriteLine($"OnAgentLocked: {data}");
+            valorantManager.Events.PreGame.OnPreGamePlayerLoaded += (data) =>
+            {
+                Debug.WriteLine($"OnPreGamePlayerLoaded: {data}");
             };
-            valorantManager.OnSelectedCharacter += (data) => {
-                Debug.WriteLine($"OnSelectedCharacter: {data}");
+            valorantManager.Events.PreGame.OnAgentSelected += (data) =>
+            {
+                Debug.WriteLine($"OnAgentSelected: {data}");
             };
-            valorantManager.OnGameLoaded += (data) => {
-                Debug.WriteLine($"OnGameLoaded: {data}");
+
+            valorantManager.Events.Match.OnMapLoaded += (data) =>
+            {
+                Debug.WriteLine($"OnMapLoaded: {data}");
             };
-            valorantManager.OnGameEnded += (data) => {
-                Debug.WriteLine($"OnGameEnded: {data}");
+            valorantManager.Events.Match.OnMatchEnded += (data) =>
+            {
+                Debug.WriteLine($"OnMatchEnded: {data}");
             };
-            valorantManager.OnCustomGameLobbyCreated += (data) => {
-                Debug.WriteLine($"OnCustomGameLobbyCreated: {data}");
+            valorantManager.Events.Match.OnMatchStarted += (data) =>
+            {
+                Debug.WriteLine($"OnMatchStarted: {data}");
+            };
+
+            valorantManager.Events.Round.OnRoundStarted += (data) =>
+            {
+                Debug.WriteLine($"OnRoundStarted: {data}");
+            };
+            valorantManager.Events.Round.OnRoundEnded += (data) =>
+            {
+                Debug.WriteLine($"OnMatchEnded: {data}");
+            };
+
+            valorantManager.Events.Vote.OnVoteDeclared += (data) =>
+            {
+                Debug.WriteLine($"Vote Active: {data}");
+            };
+            valorantManager.Events.Vote.OnVoteInvoked += (data) =>
+            {
+                Debug.WriteLine($"Chose Option: {data}");
+            };
+
+            valorantManager.Events.InGame.OnUtilPlaced += (data) =>
+            {
+                Debug.WriteLine($"OnUtilPlaced: {data}");
+            };
+            valorantManager.Events.InGame.OnBuyMenuClosed += (data) =>
+            {
+                Debug.WriteLine($"OnBuyMenuClosed: {data}");
+            };
+            valorantManager.Events.InGame.OnBuyMenuOpened += (data) =>
+            {
+                Debug.WriteLine($"OnBuyMenuOpened: {data}");
             };
         }
 

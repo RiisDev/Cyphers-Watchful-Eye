@@ -12,6 +12,13 @@ public static class MiscLogic
         return match is not { Success: true } ? "" : match.Groups[groupId].Value.Replace("\r", "").Replace("\n", "");
     }
 
+    public static string TryExtractSubstring(string log, string startToken, char endToken, Func<int, bool> condition, string prefix = " ")
+    {
+        int startIndex = log.IndexOf(startToken, StringComparison.Ordinal);
+        int endIndex = log.IndexOf(endToken, startIndex);
+        return startIndex != -1 && endIndex != -1 && condition(startIndex) ? log.Substring(startIndex, endIndex - startIndex).Replace(prefix, "") : "";
+    }
+
     public static Dictionary<int, Color> PercentToColour { get; } = new()
     {
         { 0, Color.FromRgb(255, 0, 0) },

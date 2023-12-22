@@ -85,9 +85,25 @@ public class ValorantLogic
         {"320b2a48-4d9b-a075-30f1-1f93a9b638fa","Sova"},
         {"117ed9e3-49f3-6512-3ccf-0cada7e3823b","Cypher"},
         {"8e253930-4c05-31dd-1b6c-968525494517","Omen"},
-        {"707eab51-4836-f488-046a-cda6bf494859","Viper"}
+        {"707eab51-4836-f488-046a-cda6bf494859","Viper"},
+        {"9f0d8ba9-4140-b941-57d3-a7ad57c6b417", "Brimstone"}
     };
 
+}
+
+public record ClientData(ClientData.RegionCode Region, string UserId, string PdUrl, string GlzUrl, string SharedUrl)
+{
+    [SuppressMessage("ReSharper", "InconsistentNaming")]
+    [SuppressMessage("ReSharper", "IdentifierTypo")]
+    public enum RegionCode
+    {
+        na,
+        latam,
+        br,
+        eu,
+        ap,
+        kr,
+    }
 }
 
 public record ValorantRank(string? Rank, string? RankIcon)

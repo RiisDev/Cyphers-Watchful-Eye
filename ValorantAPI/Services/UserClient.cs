@@ -6,11 +6,11 @@ using CyphersWatchfulEye.ValorantAPI.Methods;
 
 namespace CyphersWatchfulEye.ValorantAPI.Services
 {
-    public class UserClient(ValorantClient config, string userId, LogManager logStats, NetHandler net)
+    public class UserClient(ValorantClient config, string userId, LogManager.LogManager logStats, NetHandler net)
     {
         internal readonly NetHandler Net = net;
 
-        public readonly LogManager LogStats = logStats;
+        public readonly LogManager.LogManager LogStats = logStats;
         public ValorantClient ValorantClient { get; set; } = config;
 
         public string UserId { get; set; } = userId;

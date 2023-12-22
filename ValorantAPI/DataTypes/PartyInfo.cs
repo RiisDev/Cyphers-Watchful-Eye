@@ -31,7 +31,7 @@ namespace CyphersWatchfulEye.ValorantAPI.DataTypes
     );
 
     public record MatchmakingData(
-        [property: JsonPropertyName("QueueID")] string QueueID,
+        [property: JsonPropertyName("QueueID")] string? QueueID,
         [property: JsonPropertyName("PreferredGamePods")] IReadOnlyList<object> PreferredGamePods,
         [property: JsonPropertyName("SkillDisparityRRPenalty")] int? SkillDisparityRRPenalty
     );
