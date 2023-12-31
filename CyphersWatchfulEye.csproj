@@ -61,6 +61,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="RadiantConnect" Version="2.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Assets\Images\Ascendant 1.png" />
     <Resource Include="Assets\Images\Ascendant 2.png" />
     <Resource Include="Assets\Images\Ascendant 3.png" />

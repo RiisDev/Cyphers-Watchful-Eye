@@ -1,11 +1,38 @@
 {
   "version": 3,
   "targets": {
-    "net8.0-windows10.0.19041": {}
+    "net8.0-windows10.0.19041": {
+      "RadiantConnect/2.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/RadiantConnect.dll": {}
+        },
+        "runtime": {
+          "lib/net8.0/RadiantConnect.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "RadiantConnect/2.0.0": {
+      "sha512": "xBRdM4rlDgyeNZVWZBAJbCu2uD4w0vgBDKfOpgSc38akBGd9muRFaVzvYHaYGKC5v0LxZ83XP81NF/OKFnjPpA==",
+      "type": "package",
+      "path": "radiantconnect/2.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "IrisCodingNexus - Icon.png",
+        "README.md",
+        "lib/net8.0/RadiantConnect.dll",
+        "radiantconnect.2.0.0.nupkg.sha512",
+        "radiantconnect.nuspec"
+      ]
+    }
+  },
   "projectFileDependencyGroups": {
-    "net8.0-windows10.0.19041": []
+    "net8.0-windows10.0.19041": [
+      "RadiantConnect >= 2.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\irisd\\.nuget\\packages\\": {},
@@ -33,6 +60,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -50,6 +78,12 @@
     "frameworks": {
       "net8.0-windows10.0.19041": {
         "targetAlias": "net8.0-windows10.0.19041.0",
+        "dependencies": {
+          "RadiantConnect": {
+            "target": "Package",
+            "version": "[2.0.0, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",
@@ -78,7 +112,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files (x86)\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
