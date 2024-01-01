@@ -24,18 +24,27 @@
     <None Remove="Assets\Images\Ascendant 2.png" />
     <None Remove="Assets\Images\Ascendant 3.png" />
     <None Remove="Assets\Images\Ascent.png" />
+    <None Remove="Assets\Images\Astra.png" />
     <None Remove="Assets\Images\Bind.png" />
+    <None Remove="Assets\Images\Breach.png" />
     <None Remove="Assets\Images\Breeze.png" />
+    <None Remove="Assets\Images\Brimstone.png" />
     <None Remove="Assets\Images\Bronze 1.png" />
     <None Remove="Assets\Images\Bronze 2.png" />
     <None Remove="Assets\Images\Bronze 3.png" />
+    <None Remove="Assets\Images\Chamber.png" />
+    <None Remove="Assets\Images\Cypher.png" />
+    <None Remove="Assets\Images\Deadlock.png" />
     <None Remove="Assets\Images\Diamond 1.png" />
     <None Remove="Assets\Images\Diamond 2.png" />
     <None Remove="Assets\Images\Diamond 3.png" />
+    <None Remove="Assets\Images\Fade.png" />
     <None Remove="Assets\Images\Fracture.png" />
+    <None Remove="Assets\Images\Gekko.png" />
     <None Remove="Assets\Images\Gold 1.png" />
     <None Remove="Assets\Images\Gold 2.png" />
     <None Remove="Assets\Images\Gold 3.png" />
+    <None Remove="Assets\Images\Harbor.png" />
     <None Remove="Assets\Images\Haven.png" />
     <None Remove="Assets\Images\Icebox.png" />
     <None Remove="Assets\Images\Immortal 1.png" />
@@ -44,24 +53,39 @@
     <None Remove="Assets\Images\Iron 1.png" />
     <None Remove="Assets\Images\Iron 2.png" />
     <None Remove="Assets\Images\Iron 3.png" />
+    <None Remove="Assets\Images\Iso.png" />
+    <None Remove="Assets\Images\Jett.png" />
+    <None Remove="Assets\Images\KAYO.png" />
+    <None Remove="Assets\Images\Killjoy.png" />
     <None Remove="Assets\Images\Lotus.png" />
+    <None Remove="Assets\Images\Neon.png" />
+    <None Remove="Assets\Images\Omen.png" />
+    <None Remove="Assets\Images\Pearl.png" />
+    <None Remove="Assets\Images\Phoenix.png" />
     <None Remove="Assets\Images\Platinum 1.png" />
     <None Remove="Assets\Images\Platinum 2.png" />
     <None Remove="Assets\Images\Platinum 3.png" />
     <None Remove="Assets\Images\Radiant.png" />
+    <None Remove="Assets\Images\Raze.png" />
+    <None Remove="Assets\Images\Reyna.png" />
+    <None Remove="Assets\Images\Sage.png" />
     <None Remove="Assets\Images\settingsIcon.png" />
     <None Remove="Assets\Images\Silver 1.png" />
     <None Remove="Assets\Images\Silver 2.png" />
     <None Remove="Assets\Images\Silver 3.png" />
+    <None Remove="Assets\Images\Skye.png" />
+    <None Remove="Assets\Images\Sova.png" />
     <None Remove="Assets\Images\Split.png" />
     <None Remove="Assets\Images\SpotifyIcon.png" />
     <None Remove="Assets\Images\Sunset.png" />
     <None Remove="Assets\Images\Unranked.png" />
     <None Remove="Assets\Images\ValorantIcon.png" />
+    <None Remove="Assets\Images\Viper.png" />
+    <None Remove="Assets\Images\Yoru.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="RadiantConnect" Version="2.0.0" />
+    <ProjectReference Include="..\RadiantConnect\RadiantConnect.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -69,18 +93,27 @@
     <Resource Include="Assets\Images\Ascendant 2.png" />
     <Resource Include="Assets\Images\Ascendant 3.png" />
     <Resource Include="Assets\Images\Ascent.png" />
+    <Resource Include="Assets\Images\Astra.png" />
     <Resource Include="Assets\Images\Bind.png" />
+    <Resource Include="Assets\Images\Breach.png" />
     <Resource Include="Assets\Images\Breeze.png" />
+    <Resource Include="Assets\Images\Brimstone.png" />
     <Resource Include="Assets\Images\Bronze 1.png" />
     <Resource Include="Assets\Images\Bronze 2.png" />
     <Resource Include="Assets\Images\Bronze 3.png" />
+    <Resource Include="Assets\Images\Chamber.png" />
+    <Resource Include="Assets\Images\Cypher.png" />
+    <Resource Include="Assets\Images\Deadlock.png" />
     <Resource Include="Assets\Images\Diamond 1.png" />
     <Resource Include="Assets\Images\Diamond 2.png" />
     <Resource Include="Assets\Images\Diamond 3.png" />
+    <Resource Include="Assets\Images\Fade.png" />
     <Resource Include="Assets\Images\Fracture.png" />
+    <Resource Include="Assets\Images\Gekko.png" />
     <Resource Include="Assets\Images\Gold 1.png" />
     <Resource Include="Assets\Images\Gold 2.png" />
     <Resource Include="Assets\Images\Gold 3.png" />
+    <Resource Include="Assets\Images\Harbor.png" />
     <Resource Include="Assets\Images\Haven.png" />
     <Resource Include="Assets\Images\Icebox.png" />
     <Resource Include="Assets\Images\Immortal 1.png" />
@@ -89,20 +122,35 @@
     <Resource Include="Assets\Images\Iron 1.png" />
     <Resource Include="Assets\Images\Iron 2.png" />
     <Resource Include="Assets\Images\Iron 3.png" />
+    <Resource Include="Assets\Images\Iso.png" />
+    <Resource Include="Assets\Images\Jett.png" />
+    <Resource Include="Assets\Images\KAYO.png" />
+    <Resource Include="Assets\Images\Killjoy.png" />
     <Resource Include="Assets\Images\Lotus.png" />
+    <Resource Include="Assets\Images\Neon.png" />
+    <Resource Include="Assets\Images\Omen.png" />
+    <Resource Include="Assets\Images\Pearl.png" />
+    <Resource Include="Assets\Images\Phoenix.png" />
     <Resource Include="Assets\Images\Platinum 1.png" />
     <Resource Include="Assets\Images\Platinum 2.png" />
     <Resource Include="Assets\Images\Platinum 3.png" />
     <Resource Include="Assets\Images\Radiant.png" />
+    <Resource Include="Assets\Images\Raze.png" />
+    <Resource Include="Assets\Images\Reyna.png" />
+    <Resource Include="Assets\Images\Sage.png" />
     <Resource Include="Assets\Images\settingsIcon.png" />
     <Resource Include="Assets\Images\Silver 1.png" />
     <Resource Include="Assets\Images\Silver 2.png" />
     <Resource Include="Assets\Images\Silver 3.png" />
+    <Resource Include="Assets\Images\Skye.png" />
+    <Resource Include="Assets\Images\Sova.png" />
     <Resource Include="Assets\Images\Split.png" />
     <Resource Include="Assets\Images\SpotifyIcon.png" />
     <Resource Include="Assets\Images\Sunset.png" />
     <Resource Include="Assets\Images\Unranked.png" />
     <Resource Include="Assets\Images\ValorantIcon.png" />
+    <Resource Include="Assets\Images\Viper.png" />
+    <Resource Include="Assets\Images\Yoru.png" />
   </ItemGroup>
 
 </Project>

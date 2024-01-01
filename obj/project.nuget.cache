@@ -1,10 +1,9 @@
 {
   "version": 2,
-  "dgSpecHash": "/r1ptitjs1KDbQQGEMH29izxG52JZ9N+oyDrxQXIbt6wNrvGC7/pg+Fsgi0oh0N9FkX+vEJdA20b9E2qDcf3ug==",
+  "dgSpecHash": "swOCNBQtb2fLf0vNjs4qx32fFFXczEvDW95rsL+0MR2dHDy7fDTsi9A/yhL0/O1ITyQFvUkOvFS1Eah4gdWGXA==",
   "success": true,
   "projectFilePath": "G:\\Sources\\C#\\Public Source Releases\\Cyphers-Watchful-Eye\\CyphersWatchfulEye.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\irisd\\.nuget\\packages\\radiantconnect\\2.0.0\\radiantconnect.2.0.0.nupkg.sha512",
     "C:\\Users\\irisd\\.nuget\\packages\\microsoft.windows.sdk.net.ref\\10.0.19041.31\\microsoft.windows.sdk.net.ref.10.0.19041.31.nupkg.sha512"
   ],
   "logs": []

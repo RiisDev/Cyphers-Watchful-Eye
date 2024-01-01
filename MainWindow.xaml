@@ -17,19 +17,19 @@
         <!--Top Bar-->
         <Canvas Grid.Row="0" Width="180" Height="50" HorizontalAlignment="Right" Margin="0,0,8,0">
             <Rectangle Width="180" Height="40" Canvas.Bottom="2" Canvas.Right="-3" RadiusX="10" RadiusY="10" Fill="Black" Opacity="1"/>
-            <Border CornerRadius="10" Height="40" Width="180" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Top="5" ClipToBounds="True">
+            <Border Name="MapIcon" CornerRadius="10" Height="40" Width="180" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Top="5" ClipToBounds="True">
                 <Border.Background>
-                    <ImageBrush Stretch="UniformToFill" ImageSource="https://i.imgur.com/Grg97EQ.png" Opacity=".8"/>
+                    <ImageBrush Stretch="Uniform" ImageSource="https://i.imgur.com/Grg97EQ.png" Opacity=".8"/>
                 </Border.Background>
                 <Rectangle Width="180" Height="40" RadiusX="10" RadiusY="10" Fill="White" Opacity=".25"/>
             </Border>
-            <Label Content="BIND" Width="180" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White" Background="#02FFFFFF" FontFamily="Microsoft YaHei UI" FontSize="16"/>
+            <Label Name="MapName" Content="BIND" Width="180" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White" Background="#02FFFFFF" FontFamily="Microsoft YaHei UI" FontSize="16"/>
         </Canvas>
         <Canvas Grid.Row="0" Width="180" Height="50" HorizontalAlignment="Right" Margin="0,0,195,0">
             <Rectangle Width="180" Height="40" Canvas.Bottom="2" Canvas.Right="-3" RadiusX="10" RadiusY="10" Fill="Black" Opacity="1"/>
             <Rectangle Width="180" Height="40" Canvas.Bottom="2" Canvas.Right="-3" RadiusX="10" RadiusY="10" Fill="#FF191919" Opacity="1" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Top="5" />
             <Path Fill="White" Data="M169 500 c-68 -36 -119 -115 -119 -185 0 -41 22 -97 52 -131 88 -99 228 -99 316 0 67 77 67 185 0 262 -64 72 -170 96 -249 54z m120 -36 c12 -15 21 -31 21 -35 0 -5 -22 -9 -50 -9 -27 0 -50 4 -50 9 0 12 40 61 50 61 5 0 18-12 29 -26z m-111 -19 c-6 -15 -20 -25 -31 -25 -20 0 -19 1 3 25 13 14 27 25 32 25 4 0 2 -11 -4 -25z m192 0 c22 -24 23 -25 3 -25 -11 0 -25 10 -31 25 -6 14 -8 25 -4 25 5 0 19 -11 32 -25z m-212 -87 c-2 -18 -11 -24 -35 -26 -27 -3 -33 0 -33 16 0 26 8 32 42 32 25 0 29 -4 26 -22z m170 -5 c3 -22 0 -23 -67 -23 -62 0 -71 2 -71 18 0 29 10 33 75 30 54 -3 60 -5 63 -25z m100 0 c3 -20 -1 -23 -32 -23 -32 0 -36 3 -36 26 0 23 3 25 33 22 24 -2 33 -8 35 -25z m-268 -79 c0 -23 -3 -25 -32 -22 -25 2 -34 8 -36 26 -3 19 1 22 32 22 32 0 36 -3 36 -26z m168 4 c-3 -21 -8 -23 -68 -23 -60 0 -65 2 -68 23 -3 21 0 22 68 22 68 0 71 -1 68 -22z m100 0 c-2 -18 -11 -24 -35 -26 -27 -3 -33 0 -33 16 0 26 8 32 42 32 25 0 29 -4 26 -22z m-250 -93 c6 -14 8 -25 4 -25 -5 0 -19 11 -32 25 -22 24 -23 25 -3 25 11 0 25 -10 31 -25z m132 16 c0 -6 -11 -23 -25 -38 l-25 -28 -25 28 c-14 15 -25 32 -25 38 0 5 23 9 50 9 28 0 50 -4 50 -9z m60 -16 c-13 -14 -27 -25 -32 -25 -4 0 -2 11 4 25 6 15 20 25 31 25 20 0 19 -1 -3 -25z" Height="34" Stretch="Fill" Width="34" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="10" Canvas.Top="8"/>
-            <Label Content="Sao Paulo" Width="131" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White" Background="#02FFFFFF" FontFamily="Microsoft YaHei UI" FontSize="16" HorizontalAlignment="Left" Canvas.Left="49" VerticalAlignment="Center"/>
+            <Label Name="ServerRegion" Content="Sao Paulo" Width="131" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White" Background="#02FFFFFF" FontFamily="Microsoft YaHei UI" FontSize="16" HorizontalAlignment="Left" Canvas.Left="49" VerticalAlignment="Center"/>
         </Canvas>
         <Canvas Grid.Row="0" Width="180" Height="50" HorizontalAlignment="Right" Margin="0,0,380,0">
             <Rectangle Width="180" Height="40" Canvas.Bottom="2" Canvas.Right="-3" RadiusX="10" RadiusY="10" Fill="Black" Opacity="1"/>
@@ -57,7 +57,7 @@
                 </Canvas>
             </Viewbox>
 
-            <Label Content="Competitive" Width="131" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White" Background="#02FFFFFF" FontFamily="Microsoft YaHei UI" FontSize="16" HorizontalAlignment="Left" Canvas.Left="49" VerticalAlignment="Center"/>
+            <Label Name="MatchType" Content="Competitive" Width="131" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White" Background="#02FFFFFF" FontFamily="Microsoft YaHei UI" FontSize="16" HorizontalAlignment="Left" Canvas.Left="49" VerticalAlignment="Center"/>
         </Canvas>
         <Canvas Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="40" Height="40" Margin="5,0,0,0" >
             <Rectangle Width="40" Height="40" Canvas.Bottom="-2" Canvas.Left="2" RadiusX="10" RadiusY="10" Fill="Black" Opacity="1"/>
@@ -67,12 +67,12 @@
         <Canvas Grid.Row="0" Width="195" Height="50" HorizontalAlignment="Left" Margin="52,0,0,0">
             <Rectangle Width="200" Height="40" Canvas.Bottom="2" Canvas.Right="-7" RadiusX="10" RadiusY="10" Fill="Black" Opacity="1"/>
             <Rectangle Width="200" Height="40" Canvas.Bottom="2" Canvas.Right="-4" RadiusX="10" RadiusY="10" Fill="#FF191919" Opacity="1" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Top="5" />
-            <Label Content="Game Status: Pre-Lobby" Width="195" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White" Background="#02FFFFFF" FontFamily="Microsoft YaHei UI" FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <Label Name="GameState" Content="Game Status: Pre-Lobby" Width="195" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White" Background="#02FFFFFF" FontFamily="Microsoft YaHei UI" FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Center"/>
         </Canvas>
         <Canvas Grid.Row="0" Width="125" Height="50" HorizontalAlignment="Left" Margin="260,0,0,0">
             <Rectangle Width="128" Height="40" Canvas.Bottom="2" Canvas.Right="-3" RadiusX="10" RadiusY="10" Fill="Black" Opacity="1" HorizontalAlignment="Left" Canvas.Left="-2" Canvas.Top="8" VerticalAlignment="Center"/>
             <Rectangle Width="124" Height="40" Canvas.Bottom="2" Canvas.Right="-3" RadiusX="10" RadiusY="10" Fill="#FF191919" Opacity="1" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Top="5" Canvas.Left="-2" />
-            <Label Content="Loading: 0/10" Width="122" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White" Background="#02FFFFFF" FontFamily="Microsoft YaHei UI" FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <Label Name="LoadingPlayers" Content="Loading: 0/10" Width="122" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White" Background="#02FFFFFF" FontFamily="Microsoft YaHei UI" FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Center"/>
         </Canvas>
 
         <!--Separator-->
@@ -85,7 +85,7 @@
                     <ColumnDefinition Width="30"/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Border Grid.Column="1" Background="White" Width="5" CornerRadius="2" Margin="0,20,0,20" />
+                <Border Grid.Column="1" Background="White" Width="5" CornerRadius="2" Margin="5,20,0,20" />
                 <Grid Column="0">
                     <StackPanel VerticalAlignment="Center" >
                         <Border CornerRadius="15" Height="110" Background="#FF191919">
@@ -95,7 +95,7 @@
                             <Canvas>
                                 <Border Width="90" Name="LeftPlayer1HeadshotIcon" Height="90" Canvas.Left="12" CornerRadius="10" Canvas.Top="10" HorizontalAlignment="Left" VerticalAlignment="Center">
                                     <Border.Background>
-                                        <ImageBrush ImageSource="https://i.imgur.com/29RLOXo.png" Stretch="UniformToFill"/>
+                                        <ImageBrush ImageSource="https://i.imgur.com/29RLOXo.png" Stretch="Uniform"/>
                                     </Border.Background>
                                     <Border Background="Black" Margin="0,66,55,0" CornerRadius="0,0,0,10">
                                         <Label Content="999" Name="LeftPlayer1Level" Margin="0,-2,0,2" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="11"/>
@@ -113,20 +113,20 @@
                                         <DropShadowEffect RenderingBias="Quality"/>
                                     </Border.Effect>
                                 </Border>
-                                <Image Name="LeftPlayer1CurrentRank" Width="82" Height="75" Canvas.Right="12" Canvas.Top="11" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" HorizontalAlignment="Left"/>
-                                <Image Name="LeftPlayer1ActOne" Width="25" Height="25" Canvas.Right="115" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" />
-                                <Image Name="LeftPlayer1ActTwo" Width="25" Height="25" Canvas.Right="140" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" />
-                                <Image Name="LeftPlayer1ActThree" Width="25" Height="25" Canvas.Right="165" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" />
+                                <Image Name="LeftPlayer1CurrentRank" Width="82" Height="82" Canvas.Right="12" Canvas.Top="5" Source="https://i.imgur.com/CFM5aK5.png" Stretch="Uniform" HorizontalAlignment="Left"/>
+                                <Image Name="LeftPlayer1ActOne" Width="30" Height="30" Canvas.Right="115" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="Uniform" />
+                                <Image Name="LeftPlayer1ActTwo" Width="30" Height="30" Canvas.Right="148" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="Uniform" />
+                                <Image Name="LeftPlayer1ActThree" Width="30" Height="30" Canvas.Right="181" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="Uniform" />
                                 <Border Background="GreenYellow" Name="LeftPlayer1RankRatingProgress" BorderThickness="2" BorderBrush="Transparent" Width="100" Height="8" Canvas.Left="496" Canvas.Top="92" CornerRadius="2"/>
                                 <Border Background="Transparent" BorderThickness="2" BorderBrush="#FF404040" Width="100" Height="8" Canvas.Left="496" Canvas.Top="92" CornerRadius="2"/>
-                                <Border Background="GreenYellow" Name="LeftPlayer1ThirdGameRankRating" Width="25" Height="25" Canvas.Right="165"  Canvas.Top="7" CornerRadius="100">
-                                    <Label Foreground="Black" Content="+50" FontSize="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold"/>
+                                <Border Background="GreenYellow" Name="LeftPlayer1ThirdGameRankRating" Width="30" Height="30" Canvas.Right="181"  Canvas.Top="7" CornerRadius="100">
+                                    <Label Foreground="Black" Content="+50" FontSize="11" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold" Margin="-1,1,1,0"/>
                                 </Border>
-                                <Border Background="GreenYellow" Name="LeftPlayer1SecondGameRankRating" Width="25" Height="25" Canvas.Right="140"  Canvas.Top="7" CornerRadius="100">
-                                    <Label Foreground="Black" Content="+50" FontSize="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold"/>
+                                <Border Background="GreenYellow" Name="LeftPlayer1SecondGameRankRating" Width="30" Height="30" Canvas.Right="148"  Canvas.Top="7" CornerRadius="100">
+                                    <Label Foreground="Black" Content="+50" FontSize="11" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold" Margin="-1,1,1,0"/>
                                 </Border>
-                                <Border Background="GreenYellow" Name="LeftPlayer1FirstGameRankRating" Width="25" Height="25" Canvas.Right="115"  Canvas.Top="7" CornerRadius="100">
-                                    <Label Foreground="Black" Content="+50" FontSize="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold"/>
+                                <Border Background="GreenYellow" Name="LeftPlayer1FirstGameRankRating" Width="30" Height="30" Canvas.Right="115"  Canvas.Top="7" CornerRadius="100">
+                                    <Label Foreground="Black" Content="+50" FontSize="11" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold" Margin="-1,1,1,0"/>
                                 </Border>
                             </Canvas>
                         </Border>
@@ -138,7 +138,7 @@
                             <Canvas>
                                 <Border Width="90" Name="LeftPlayer2HeadshotIcon" Height="90" Canvas.Left="12" CornerRadius="10" Canvas.Top="10" HorizontalAlignment="Left" VerticalAlignment="Center">
                                     <Border.Background>
-                                        <ImageBrush ImageSource="https://i.imgur.com/29RLOXo.png" Stretch="UniformToFill"/>
+                                        <ImageBrush ImageSource="https://i.imgur.com/29RLOXo.png" Stretch="Uniform"/>
                                     </Border.Background>
                                     <Border Background="Black" Margin="0,66,55,0" CornerRadius="0,0,0,10">
                                         <Label Content="999" Name="LeftPlayer2Level" Margin="0,-2,0,2" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="11"/>
@@ -156,20 +156,20 @@
                                         <DropShadowEffect RenderingBias="Quality"/>
                                     </Border.Effect>
                                 </Border>
-                                <Image Name="LeftPlayer2CurrentRank" Width="82" Height="75" Canvas.Right="12" Canvas.Top="11" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" HorizontalAlignment="Left"/>
-                                <Image Name="LeftPlayer2ActOne" Width="25" Height="25" Canvas.Right="115" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" />
-                                <Image Name="LeftPlayer2ActTwo" Width="25" Height="25" Canvas.Right="140" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" />
-                                <Image Name="LeftPlayer2ActThree" Width="25" Height="25" Canvas.Right="165" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" />
+                                <Image Name="LeftPlayer2CurrentRank" Width="82" Height="82" Canvas.Right="12" Canvas.Top="5" Source="https://i.imgur.com/CFM5aK5.png" Stretch="Uniform" HorizontalAlignment="Left"/>
+                                <Image Name="LeftPlayer2ActOne" Width="30" Height="30" Canvas.Right="115" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="Uniform" />
+                                <Image Name="LeftPlayer2ActTwo" Width="30" Height="30" Canvas.Right="148" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="Uniform" />
+                                <Image Name="LeftPlayer2ActThree" Width="30" Height="30" Canvas.Right="181" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="Uniform" />
                                 <Border Background="GreenYellow" Name="LeftPlayer2RankRatingProgress" BorderThickness="2" BorderBrush="Transparent" Width="100" Height="8" Canvas.Left="496" Canvas.Top="92" CornerRadius="2"/>
                                 <Border Background="Transparent" BorderThickness="2" BorderBrush="#FF404040" Width="100" Height="8" Canvas.Left="496" Canvas.Top="92" CornerRadius="2"/>
-                                <Border Background="GreenYellow" Name="LeftPlayer2ThirdGameRankRating" Width="25" Height="25" Canvas.Right="165"  Canvas.Top="7" CornerRadius="100">
-                                    <Label Foreground="Black" Content="+50" FontSize="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold"/>
+                                <Border Background="GreenYellow" Name="LeftPlayer2ThirdGameRankRating" Width="30" Height="30" Canvas.Right="181"  Canvas.Top="7" CornerRadius="100">
+                                    <Label Foreground="Black" Content="+50" FontSize="11" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold" Margin="-1,1,1,0"/>
                                 </Border>
-                                <Border Background="GreenYellow" Name="LeftPlayer2SecondGameRankRating" Width="25" Height="25" Canvas.Right="140"  Canvas.Top="7" CornerRadius="100">
-                                    <Label Foreground="Black" Content="+50" FontSize="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold"/>
+                                <Border Background="GreenYellow" Name="LeftPlayer2SecondGameRankRating" Width="30" Height="30" Canvas.Right="148"  Canvas.Top="7" CornerRadius="100">
+                                    <Label Foreground="Black" Content="+50" FontSize="11" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold" Margin="-1,1,1,0"/>
                                 </Border>
-                                <Border Background="GreenYellow" Name="LeftPlayer2FirstGameRankRating" Width="25" Height="25" Canvas.Right="115"  Canvas.Top="7" CornerRadius="100">
-                                    <Label Foreground="Black" Content="+50" FontSize="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold"/>
+                                <Border Background="GreenYellow" Name="LeftPlayer2FirstGameRankRating" Width="30" Height="30" Canvas.Right="115"  Canvas.Top="7" CornerRadius="100">
+                                    <Label Foreground="Black" Content="+50" FontSize="11" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold" Margin="-1,1,1,0"/>
                                 </Border>
                             </Canvas>
                         </Border>
@@ -181,7 +181,7 @@
                             <Canvas>
                                 <Border Width="90" Name="LeftPlayer3HeadshotIcon" Height="90" Canvas.Left="12" CornerRadius="10" Canvas.Top="10" HorizontalAlignment="Left" VerticalAlignment="Center">
                                     <Border.Background>
-                                        <ImageBrush ImageSource="https://i.imgur.com/29RLOXo.png" Stretch="UniformToFill"/>
+                                        <ImageBrush ImageSource="https://i.imgur.com/29RLOXo.png" Stretch="Uniform"/>
                                     </Border.Background>
                                     <Border Background="Black" Margin="0,66,55,0" CornerRadius="0,0,0,10">
                                         <Label Content="999" Name="LeftPlayer3Level" Margin="0,-2,0,2" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="11"/>
@@ -199,20 +199,20 @@
                                         <DropShadowEffect RenderingBias="Quality"/>
                                     </Border.Effect>
                                 </Border>
-                                <Image Name="LeftPlayer3CurrentRank" Width="82" Height="75" Canvas.Right="12" Canvas.Top="11" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" HorizontalAlignment="Left"/>
-                                <Image Name="LeftPlayer3ActOne" Width="25" Height="25" Canvas.Right="115" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" />
-                                <Image Name="LeftPlayer3ActTwo" Width="25" Height="25" Canvas.Right="140" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" />
-                                <Image Name="LeftPlayer3ActThree" Width="25" Height="25" Canvas.Right="165" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" />
+                                <Image Name="LeftPlayer3CurrentRank" Width="82" Height="82" Canvas.Right="12" Canvas.Top="5" Source="https://i.imgur.com/CFM5aK5.png" Stretch="Uniform" HorizontalAlignment="Left"/>
+                                <Image Name="LeftPlayer3ActOne" Width="30" Height="30" Canvas.Right="115" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="Uniform" />
+                                <Image Name="LeftPlayer3ActTwo" Width="30" Height="30" Canvas.Right="148" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="Uniform" />
+                                <Image Name="LeftPlayer3ActThree" Width="30" Height="30" Canvas.Right="181" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="Uniform" />
                                 <Border Background="GreenYellow" Name="LeftPlayer3RankRatingProgress" BorderThickness="2" BorderBrush="Transparent" Width="100" Height="8" Canvas.Left="496" Canvas.Top="92" CornerRadius="2"/>
                                 <Border Background="Transparent" BorderThickness="2" BorderBrush="#FF404040" Width="100" Height="8" Canvas.Left="496" Canvas.Top="92" CornerRadius="2"/>
-                                <Border Background="GreenYellow" Name="LeftPlayer3ThirdGameRankRating" Width="25" Height="25" Canvas.Right="165"  Canvas.Top="7" CornerRadius="100">
-                                    <Label Foreground="Black" Content="+50" FontSize="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold"/>
+                                <Border Background="GreenYellow" Name="LeftPlayer3ThirdGameRankRating" Width="30" Height="30" Canvas.Right="181"  Canvas.Top="7" CornerRadius="100">
+                                    <Label Foreground="Black" Content="+50" FontSize="11" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold" Margin="-1,1,1,0"/>
                                 </Border>
-                                <Border Background="GreenYellow" Name="LeftPlayer3SecondGameRankRating" Width="25" Height="25" Canvas.Right="140"  Canvas.Top="7" CornerRadius="100">
-                                    <Label Foreground="Black" Content="+50" FontSize="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold"/>
+                                <Border Background="GreenYellow" Name="LeftPlayer3SecondGameRankRating" Width="30" Height="30" Canvas.Right="148"  Canvas.Top="7" CornerRadius="100">
+                                    <Label Foreground="Black" Content="+50" FontSize="11" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold" Margin="-1,1,1,0"/>
                                 </Border>
-                                <Border Background="GreenYellow" Name="LeftPlayer3FirstGameRankRating" Width="25" Height="25" Canvas.Right="115"  Canvas.Top="7" CornerRadius="100">
-                                    <Label Foreground="Black" Content="+50" FontSize="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold"/>
+                                <Border Background="GreenYellow" Name="LeftPlayer3FirstGameRankRating" Width="30" Height="30" Canvas.Right="115"  Canvas.Top="7" CornerRadius="100">
+                                    <Label Foreground="Black" Content="+50" FontSize="11" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold" Margin="-1,1,1,0"/>
                                 </Border>
                             </Canvas>
                         </Border>
@@ -224,7 +224,7 @@
                             <Canvas>
                                 <Border Width="90" Name="LeftPlayer4HeadshotIcon" Height="90" Canvas.Left="12" CornerRadius="10" Canvas.Top="10" HorizontalAlignment="Left" VerticalAlignment="Center">
                                     <Border.Background>
-                                        <ImageBrush ImageSource="https://i.imgur.com/29RLOXo.png" Stretch="UniformToFill"/>
+                                        <ImageBrush ImageSource="https://i.imgur.com/29RLOXo.png" Stretch="Uniform"/>
                                     </Border.Background>
                                     <Border Background="Black" Margin="0,66,55,0" CornerRadius="0,0,0,10">
                                         <Label Content="999" Name="LeftPlayer4Level" Margin="0,-2,0,2" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="11"/>
@@ -242,20 +242,20 @@
                                         <DropShadowEffect RenderingBias="Quality"/>
                                     </Border.Effect>
                                 </Border>
-                                <Image Name="LeftPlayer4CurrentRank" Width="82" Height="75" Canvas.Right="12" Canvas.Top="11" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" HorizontalAlignment="Left"/>
-                                <Image Name="LeftPlayer4ActOne" Width="25" Height="25" Canvas.Right="115" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" />
-                                <Image Name="LeftPlayer4ActTwo" Width="25" Height="25" Canvas.Right="140" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" />
-                                <Image Name="LeftPlayer4ActThree" Width="25" Height="25" Canvas.Right="165" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" />
+                                <Image Name="LeftPlayer4CurrentRank" Width="82" Height="82" Canvas.Right="12" Canvas.Top="5" Source="https://i.imgur.com/CFM5aK5.png" Stretch="Uniform" HorizontalAlignment="Left"/>
+                                <Image Name="LeftPlayer4ActOne" Width="30" Height="30" Canvas.Right="115" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="Uniform" />
+                                <Image Name="LeftPlayer4ActTwo" Width="30" Height="30" Canvas.Right="148" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="Uniform" />
+                                <Image Name="LeftPlayer4ActThree" Width="30" Height="30" Canvas.Right="181" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="Uniform" />
                                 <Border Background="GreenYellow" Name="LeftPlayer4RankRatingProgress" BorderThickness="2" BorderBrush="Transparent" Width="100" Height="8" Canvas.Left="496" Canvas.Top="92" CornerRadius="2"/>
                                 <Border Background="Transparent" BorderThickness="2" BorderBrush="#FF404040" Width="100" Height="8" Canvas.Left="496" Canvas.Top="92" CornerRadius="2"/>
-                                <Border Background="GreenYellow" Name="LeftPlayer4ThirdGameRankRating" Width="25" Height="25" Canvas.Right="165"  Canvas.Top="7" CornerRadius="100">
-                                    <Label Foreground="Black" Content="+50" FontSize="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold"/>
+                                <Border Background="GreenYellow" Name="LeftPlayer4ThirdGameRankRating" Width="30" Height="30" Canvas.Right="181"  Canvas.Top="7" CornerRadius="100">
+                                    <Label Foreground="Black" Content="+50" FontSize="11" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold" Margin="-1,1,1,0"/>
                                 </Border>
-                                <Border Background="GreenYellow" Name="LeftPlayer4SecondGameRankRating" Width="25" Height="25" Canvas.Right="140"  Canvas.Top="7" CornerRadius="100">
-                                    <Label Foreground="Black" Content="+50" FontSize="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold"/>
+                                <Border Background="GreenYellow" Name="LeftPlayer4SecondGameRankRating" Width="30" Height="30" Canvas.Right="148"  Canvas.Top="7" CornerRadius="100">
+                                    <Label Foreground="Black" Content="+50" FontSize="11" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold" Margin="-1,1,1,0"/>
                                 </Border>
-                                <Border Background="GreenYellow" Name="LeftPlayer4FirstGameRankRating" Width="25" Height="25" Canvas.Right="115"  Canvas.Top="7" CornerRadius="100">
-                                    <Label Foreground="Black" Content="+50" FontSize="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold"/>
+                                <Border Background="GreenYellow" Name="LeftPlayer4FirstGameRankRating" Width="30" Height="30" Canvas.Right="115"  Canvas.Top="7" CornerRadius="100">
+                                    <Label Foreground="Black" Content="+50" FontSize="11" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold" Margin="-1,1,1,0"/>
                                 </Border>
                             </Canvas>
                         </Border>
@@ -267,7 +267,7 @@
                             <Canvas>
                                 <Border Width="90" Name="LeftPlayer5HeadshotIcon" Height="90" Canvas.Left="12" CornerRadius="10" Canvas.Top="10" HorizontalAlignment="Left" VerticalAlignment="Center">
                                     <Border.Background>
-                                        <ImageBrush ImageSource="https://i.imgur.com/29RLOXo.png" Stretch="UniformToFill"/>
+                                        <ImageBrush ImageSource="https://i.imgur.com/29RLOXo.png" Stretch="Uniform"/>
                                     </Border.Background>
                                     <Border Background="Black" Margin="0,66,55,0" CornerRadius="0,0,0,10">
                                         <Label Content="999" Name="LeftPlayer5Level" Margin="0,-2,0,2" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="11"/>
@@ -285,20 +285,20 @@
                                         <DropShadowEffect RenderingBias="Quality"/>
                                     </Border.Effect>
                                 </Border>
-                                <Image Name="LeftPlayer5CurrentRank" Width="82" Height="75" Canvas.Right="12" Canvas.Top="11" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" HorizontalAlignment="Left"/>
-                                <Image Name="LeftPlayer5ActOne" Width="25" Height="25" Canvas.Right="115" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" />
-                                <Image Name="LeftPlayer5ActTwo" Width="25" Height="25" Canvas.Right="140" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" />
-                                <Image Name="LeftPlayer5ActThree" Width="25" Height="25" Canvas.Right="165" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" />
+                                <Image Name="LeftPlayer5CurrentRank" Width="82" Height="84" Canvas.Right="12" Canvas.Top="5" Source="https://i.imgur.com/CFM5aK5.png" Stretch="Uniform" HorizontalAlignment="Center" Canvas.Left="506" VerticalAlignment="Top"/>
+                                <Image Name="LeftPlayer5ActOne" Width="30" Height="30" Canvas.Right="115" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="Uniform" />
+                                <Image Name="LeftPlayer5ActTwo" Width="30" Height="30" Canvas.Right="148" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="Uniform" />
+                                <Image Name="LeftPlayer5ActThree" Width="30" Height="30" Canvas.Right="181" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="Uniform" />
                                 <Border Background="GreenYellow" Name="LeftPlayer5RankRatingProgress" BorderThickness="2" BorderBrush="Transparent" Width="100" Height="8" Canvas.Left="496" Canvas.Top="92" CornerRadius="2"/>
                                 <Border Background="Transparent" BorderThickness="2" BorderBrush="#FF404040" Width="100" Height="8" Canvas.Left="496" Canvas.Top="92" CornerRadius="2"/>
-                                <Border Background="GreenYellow" Name="LeftPlayer5ThirdGameRankRating" Width="25" Height="25" Canvas.Right="165"  Canvas.Top="7" CornerRadius="100">
-                                    <Label Foreground="Black" Content="+50" FontSize="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold"/>
+                                <Border Background="GreenYellow" Name="LeftPlayer5ThirdGameRankRating" Width="30" Height="30" Canvas.Right="181"  Canvas.Top="7" CornerRadius="100">
+                                    <Label Foreground="Black" Content="+50" FontSize="11" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold" Margin="-1,1,1,0"/>
                                 </Border>
-                                <Border Background="GreenYellow" Name="LeftPlayer5SecondGameRankRating" Width="25" Height="25" Canvas.Right="140"  Canvas.Top="7" CornerRadius="100">
-                                    <Label Foreground="Black" Content="+50" FontSize="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold"/>
+                                <Border Background="GreenYellow" Name="LeftPlayer5SecondGameRankRating" Width="30" Height="30" Canvas.Right="148"  Canvas.Top="7" CornerRadius="100">
+                                    <Label Foreground="Black" Content="+50" FontSize="11" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold" Margin="-1,1,1,0"/>
                                 </Border>
-                                <Border Background="GreenYellow" Name="LeftPlayer5FirstGameRankRating" Width="25" Height="25" Canvas.Right="115"  Canvas.Top="7" CornerRadius="100">
-                                    <Label Foreground="Black" Content="+50" FontSize="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold"/>
+                                <Border Background="GreenYellow" Name="LeftPlayer5FirstGameRankRating" Width="30" Height="30" Canvas.Right="115"  Canvas.Top="7" CornerRadius="100">
+                                    <Label Foreground="Black" Content="+50" FontSize="11" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold" Margin="-1,1,1,0"/>
                                 </Border>
                             </Canvas>
                         </Border>
@@ -314,7 +314,7 @@
                             <Canvas>
                                 <Border Width="90" Name="RightPlayer1HeadshotIcon" Height="90" Canvas.Left="12" CornerRadius="10" Canvas.Top="10" HorizontalAlignment="Left" VerticalAlignment="Center">
                                     <Border.Background>
-                                        <ImageBrush ImageSource="https://i.imgur.com/29RLOXo.png" Stretch="UniformToFill"/>
+                                        <ImageBrush ImageSource="https://i.imgur.com/29RLOXo.png" Stretch="Uniform"/>
                                     </Border.Background>
                                     <Border Background="Black" Margin="0,66,55,0" CornerRadius="0,0,0,10">
                                         <Label Content="999" Name="RightPlayer1Level" Margin="0,-2,0,2" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="11"/>
@@ -332,20 +332,20 @@
                                         <DropShadowEffect RenderingBias="Quality"/>
                                     </Border.Effect>
                                 </Border>
-                                <Image Name="RightPlayer1CurrentRank" Width="82" Height="75" Canvas.Right="12" Canvas.Top="11" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" HorizontalAlignment="Left"/>
-                                <Image Name="RightPlayer1ActOne" Width="25" Height="25" Canvas.Right="115" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" />
-                                <Image Name="RightPlayer1ActTwo" Width="25" Height="25" Canvas.Right="140" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" />
-                                <Image Name="RightPlayer1ActThree" Width="25" Height="25" Canvas.Right="165" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" />
+                                <Image Name="RightPlayer1CurrentRank" Width="82" Height="82" Canvas.Right="12" Canvas.Top="5" Source="https://i.imgur.com/CFM5aK5.png" Stretch="Uniform" HorizontalAlignment="Left"/>
+                                <Image Name="RightPlayer1ActOne" Width="30" Height="30" Canvas.Right="115" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="Uniform" />
+                                <Image Name="RightPlayer1ActTwo" Width="30" Height="30" Canvas.Right="148" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="Uniform" />
+                                <Image Name="RightPlayer1ActThree" Width="30" Height="30" Canvas.Right="181" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="Uniform" />
                                 <Border Background="GreenYellow" Name="RightPlayer1RankRatingProgress" BorderThickness="2" BorderBrush="Transparent" Width="100" Height="8" Canvas.Left="496" Canvas.Top="92" CornerRadius="2"/>
                                 <Border Background="Transparent" BorderThickness="2" BorderBrush="#FF404040" Width="100" Height="8" Canvas.Left="496" Canvas.Top="92" CornerRadius="2"/>
-                                <Border Background="GreenYellow" Name="RightPlayer1ThirdGameRankRating" Width="25" Height="25" Canvas.Right="165"  Canvas.Top="7" CornerRadius="100">
-                                    <Label Foreground="Black" Content="+50" FontSize="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold"/>
+                                <Border Background="GreenYellow" Name="RightPlayer1ThirdGameRankRating" Width="30" Height="30" Canvas.Right="181"  Canvas.Top="7" CornerRadius="100">
+                                    <Label Foreground="Black" Content="+50" FontSize="11" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold" Margin="-1,1,1,0"/>
                                 </Border>
-                                <Border Background="GreenYellow" Name="RightPlayer1SecondGameRankRating" Width="25" Height="25" Canvas.Right="140"  Canvas.Top="7" CornerRadius="100">
-                                    <Label Foreground="Black" Content="+50" FontSize="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold"/>
+                                <Border Background="GreenYellow" Name="RightPlayer1SecondGameRankRating" Width="30" Height="30" Canvas.Right="148"  Canvas.Top="7" CornerRadius="100">
+                                    <Label Foreground="Black" Content="+50" FontSize="11" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold" Margin="-1,1,1,0"/>
                                 </Border>
-                                <Border Background="GreenYellow" Name="RightPlayer1FirstGameRankRating" Width="25" Height="25" Canvas.Right="115"  Canvas.Top="7" CornerRadius="100">
-                                    <Label Foreground="Black" Content="+50" FontSize="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold"/>
+                                <Border Background="GreenYellow" Name="RightPlayer1FirstGameRankRating" Width="30" Height="30" Canvas.Right="115"  Canvas.Top="7" CornerRadius="100">
+                                    <Label Foreground="Black" Content="+50" FontSize="11" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold" Margin="-1,1,1,0"/>
                                 </Border>
                             </Canvas>
                         </Border>
@@ -357,7 +357,7 @@
                             <Canvas>
                                 <Border Width="90" Name="RightPlayer2HeadshotIcon" Height="90" Canvas.Left="12" CornerRadius="10" Canvas.Top="10" HorizontalAlignment="Left" VerticalAlignment="Center">
                                     <Border.Background>
-                                        <ImageBrush ImageSource="https://i.imgur.com/29RLOXo.png" Stretch="UniformToFill"/>
+                                        <ImageBrush ImageSource="https://i.imgur.com/29RLOXo.png" Stretch="Uniform"/>
                                     </Border.Background>
                                     <Border Background="Black" Margin="0,66,55,0" CornerRadius="0,0,0,10">
                                         <Label Content="999" Name="RightPlayer2Level" Margin="0,-2,0,2" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="11"/>
@@ -375,20 +375,20 @@
                                         <DropShadowEffect RenderingBias="Quality"/>
                                     </Border.Effect>
                                 </Border>
-                                <Image Name="RightPlayer2CurrentRank" Width="82" Height="75" Canvas.Right="12" Canvas.Top="11" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" HorizontalAlignment="Left"/>
-                                <Image Name="RightPlayer2ActOne" Width="25" Height="25" Canvas.Right="115" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" />
-                                <Image Name="RightPlayer2ActTwo" Width="25" Height="25" Canvas.Right="140" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" />
-                                <Image Name="RightPlayer2ActThree" Width="25" Height="25" Canvas.Right="165" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" />
+                                <Image Name="RightPlayer2CurrentRank" Width="82" Height="82" Canvas.Right="12" Canvas.Top="5" Source="https://i.imgur.com/CFM5aK5.png" Stretch="Uniform" HorizontalAlignment="Left"/>
+                                <Image Name="RightPlayer2ActOne" Width="30" Height="30" Canvas.Right="115" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="Uniform" />
+                                <Image Name="RightPlayer2ActTwo" Width="30" Height="30" Canvas.Right="148" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="Uniform" />
+                                <Image Name="RightPlayer2ActThree" Width="30" Height="30" Canvas.Right="181" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="Uniform" />
                                 <Border Background="GreenYellow" Name="RightPlayer2RankRatingProgress" BorderThickness="2" BorderBrush="Transparent" Width="100" Height="8" Canvas.Left="496" Canvas.Top="92" CornerRadius="2"/>
                                 <Border Background="Transparent" BorderThickness="2" BorderBrush="#FF404040" Width="100" Height="8" Canvas.Left="496" Canvas.Top="92" CornerRadius="2"/>
-                                <Border Background="GreenYellow" Name="RightPlayer2ThirdGameRankRating" Width="25" Height="25" Canvas.Right="165"  Canvas.Top="7" CornerRadius="100">
-                                    <Label Foreground="Black" Content="+50" FontSize="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold"/>
+                                <Border Background="GreenYellow" Name="RightPlayer2ThirdGameRankRating" Width="30" Height="30" Canvas.Right="181"  Canvas.Top="7" CornerRadius="100">
+                                    <Label Foreground="Black" Content="+50" FontSize="11" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold" Margin="-1,1,1,0"/>
                                 </Border>
-                                <Border Background="GreenYellow" Name="RightPlayer2SecondGameRankRating" Width="25" Height="25" Canvas.Right="140"  Canvas.Top="7" CornerRadius="100">
-                                    <Label Foreground="Black" Content="+50" FontSize="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold"/>
+                                <Border Background="GreenYellow" Name="RightPlayer2SecondGameRankRating" Width="30" Height="30" Canvas.Right="148"  Canvas.Top="7" CornerRadius="100">
+                                    <Label Foreground="Black" Content="+50" FontSize="11" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold" Margin="-1,1,1,0"/>
                                 </Border>
-                                <Border Background="GreenYellow" Name="RightPlayer2FirstGameRankRating" Width="25" Height="25" Canvas.Right="115"  Canvas.Top="7" CornerRadius="100">
-                                    <Label Foreground="Black" Content="+50" FontSize="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold"/>
+                                <Border Background="GreenYellow" Name="RightPlayer2FirstGameRankRating" Width="30" Height="30" Canvas.Right="115"  Canvas.Top="7" CornerRadius="100">
+                                    <Label Foreground="Black" Content="+50" FontSize="11" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold" Margin="-1,1,1,0"/>
                                 </Border>
                             </Canvas>
                         </Border>
@@ -400,7 +400,7 @@
                             <Canvas>
                                 <Border Width="90" Name="RightPlayer3HeadshotIcon" Height="90" Canvas.Left="12" CornerRadius="10" Canvas.Top="10" HorizontalAlignment="Left" VerticalAlignment="Center">
                                     <Border.Background>
-                                        <ImageBrush ImageSource="https://i.imgur.com/29RLOXo.png" Stretch="UniformToFill"/>
+                                        <ImageBrush ImageSource="https://i.imgur.com/29RLOXo.png" Stretch="Uniform"/>
                                     </Border.Background>
                                     <Border Background="Black" Margin="0,66,55,0" CornerRadius="0,0,0,10">
                                         <Label Content="999" Name="RightPlayer3Level" Margin="0,-2,0,2" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="11"/>
@@ -418,20 +418,20 @@
                                         <DropShadowEffect RenderingBias="Quality"/>
                                     </Border.Effect>
                                 </Border>
-                                <Image Name="RightPlayer3CurrentRank" Width="82" Height="75" Canvas.Right="12" Canvas.Top="11" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" HorizontalAlignment="Left"/>
-                                <Image Name="RightPlayer3ActOne" Width="25" Height="25" Canvas.Right="115" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" />
-                                <Image Name="RightPlayer3ActTwo" Width="25" Height="25" Canvas.Right="140" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" />
-                                <Image Name="RightPlayer3ActThree" Width="25" Height="25" Canvas.Right="165" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" />
+                                <Image Name="RightPlayer3CurrentRank" Width="82" Height="82" Canvas.Right="12" Canvas.Top="5" Source="https://i.imgur.com/CFM5aK5.png" Stretch="Uniform" HorizontalAlignment="Left"/>
+                                <Image Name="RightPlayer3ActOne" Width="30" Height="30" Canvas.Right="115" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="Uniform" />
+                                <Image Name="RightPlayer3ActTwo" Width="30" Height="30" Canvas.Right="148" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="Uniform" />
+                                <Image Name="RightPlayer3ActThree" Width="30" Height="30" Canvas.Right="181" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="Uniform" />
                                 <Border Background="GreenYellow" Name="RightPlayer3RankRatingProgress" BorderThickness="2" BorderBrush="Transparent" Width="100" Height="8" Canvas.Left="496" Canvas.Top="92" CornerRadius="2"/>
                                 <Border Background="Transparent" BorderThickness="2" BorderBrush="#FF404040" Width="100" Height="8" Canvas.Left="496" Canvas.Top="92" CornerRadius="2"/>
-                                <Border Background="GreenYellow" Name="RightPlayer3ThirdGameRankRating" Width="25" Height="25" Canvas.Right="165"  Canvas.Top="7" CornerRadius="100">
-                                    <Label Foreground="Black" Content="+50" FontSize="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold"/>
+                                <Border Background="GreenYellow" Name="RightPlayer3ThirdGameRankRating" Width="30" Height="30" Canvas.Right="181"  Canvas.Top="7" CornerRadius="100">
+                                    <Label Foreground="Black" Content="+50" FontSize="11" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold" Margin="-1,1,1,0"/>
                                 </Border>
-                                <Border Background="GreenYellow" Name="RightPlayer3SecondGameRankRating" Width="25" Height="25" Canvas.Right="140"  Canvas.Top="7" CornerRadius="100">
-                                    <Label Foreground="Black" Content="+50" FontSize="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold"/>
+                                <Border Background="GreenYellow" Name="RightPlayer3SecondGameRankRating" Width="30" Height="30" Canvas.Right="148"  Canvas.Top="7" CornerRadius="100">
+                                    <Label Foreground="Black" Content="+50" FontSize="11" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold" Margin="-1,1,1,0"/>
                                 </Border>
-                                <Border Background="GreenYellow" Name="RightPlayer3FirstGameRankRating" Width="25" Height="25" Canvas.Right="115"  Canvas.Top="7" CornerRadius="100">
-                                    <Label Foreground="Black" Content="+50" FontSize="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold"/>
+                                <Border Background="GreenYellow" Name="RightPlayer3FirstGameRankRating" Width="30" Height="30" Canvas.Right="115"  Canvas.Top="7" CornerRadius="100">
+                                    <Label Foreground="Black" Content="+50" FontSize="11" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold" Margin="-1,1,1,0"/>
                                 </Border>
                             </Canvas>
                         </Border>
@@ -443,7 +443,7 @@
                             <Canvas>
                                 <Border Width="90" Name="RightPlayer4HeadshotIcon" Height="90" Canvas.Left="12" CornerRadius="10" Canvas.Top="10" HorizontalAlignment="Left" VerticalAlignment="Center">
                                     <Border.Background>
-                                        <ImageBrush ImageSource="https://i.imgur.com/29RLOXo.png" Stretch="UniformToFill"/>
+                                        <ImageBrush ImageSource="https://i.imgur.com/29RLOXo.png" Stretch="Uniform"/>
                                     </Border.Background>
                                     <Border Background="Black" Margin="0,66,55,0" CornerRadius="0,0,0,10">
                                         <Label Content="999" Name="RightPlayer4Level" Margin="0,-2,0,2" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="11"/>
@@ -461,20 +461,20 @@
                                         <DropShadowEffect RenderingBias="Quality"/>
                                     </Border.Effect>
                                 </Border>
-                                <Image Name="RightPlayer4CurrentRank" Width="82" Height="75" Canvas.Right="12" Canvas.Top="11" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" HorizontalAlignment="Left"/>
-                                <Image Name="RightPlayer4ActOne" Width="25" Height="25" Canvas.Right="115" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" />
-                                <Image Name="RightPlayer4ActTwo" Width="25" Height="25" Canvas.Right="140" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" />
-                                <Image Name="RightPlayer4ActThree" Width="25" Height="25" Canvas.Right="165" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" />
+                                <Image Name="RightPlayer4CurrentRank" Width="82" Height="82" Canvas.Right="12" Canvas.Top="5" Source="https://i.imgur.com/CFM5aK5.png" Stretch="Uniform" HorizontalAlignment="Left"/>
+                                <Image Name="RightPlayer4ActOne" Width="30" Height="30" Canvas.Right="115" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="Uniform" />
+                                <Image Name="RightPlayer4ActTwo" Width="30" Height="30" Canvas.Right="148" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="Uniform" />
+                                <Image Name="RightPlayer4ActThree" Width="30" Height="30" Canvas.Right="181" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="Uniform" />
                                 <Border Background="GreenYellow" Name="RightPlayer4RankRatingProgress" BorderThickness="2" BorderBrush="Transparent" Width="100" Height="8" Canvas.Left="496" Canvas.Top="92" CornerRadius="2"/>
                                 <Border Background="Transparent" BorderThickness="2" BorderBrush="#FF404040" Width="100" Height="8" Canvas.Left="496" Canvas.Top="92" CornerRadius="2"/>
-                                <Border Background="GreenYellow" Name="RightPlayer4ThirdGameRankRating" Width="25" Height="25" Canvas.Right="165"  Canvas.Top="7" CornerRadius="100">
-                                    <Label Foreground="Black" Content="+50" FontSize="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold"/>
+                                <Border Background="GreenYellow" Name="RightPlayer4ThirdGameRankRating" Width="30" Height="30" Canvas.Right="181"  Canvas.Top="7" CornerRadius="100">
+                                    <Label Foreground="Black" Content="+50" FontSize="11" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold" Margin="-1,1,1,0"/>
                                 </Border>
-                                <Border Background="GreenYellow" Name="RightPlayer4SecondGameRankRating" Width="25" Height="25" Canvas.Right="140"  Canvas.Top="7" CornerRadius="100">
-                                    <Label Foreground="Black" Content="+50" FontSize="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold"/>
+                                <Border Background="GreenYellow" Name="RightPlayer4SecondGameRankRating" Width="30" Height="30" Canvas.Right="148"  Canvas.Top="7" CornerRadius="100">
+                                    <Label Foreground="Black" Content="+50" FontSize="11" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold" Margin="-1,1,1,0"/>
                                 </Border>
-                                <Border Background="GreenYellow" Name="RightPlayer4FirstGameRankRating" Width="25" Height="25" Canvas.Right="115"  Canvas.Top="7" CornerRadius="100">
-                                    <Label Foreground="Black" Content="+50" FontSize="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold"/>
+                                <Border Background="GreenYellow" Name="RightPlayer4FirstGameRankRating" Width="30" Height="30" Canvas.Right="115"  Canvas.Top="7" CornerRadius="100">
+                                    <Label Foreground="Black" Content="+50" FontSize="11" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold" Margin="-1,1,1,0"/>
                                 </Border>
                             </Canvas>
                         </Border>
@@ -486,7 +486,7 @@
                             <Canvas>
                                 <Border Width="90" Name="RightPlayer5HeadshotIcon" Height="90" Canvas.Left="12" CornerRadius="10" Canvas.Top="10" HorizontalAlignment="Left" VerticalAlignment="Center">
                                     <Border.Background>
-                                        <ImageBrush ImageSource="https://i.imgur.com/29RLOXo.png" Stretch="UniformToFill"/>
+                                        <ImageBrush ImageSource="https://i.imgur.com/29RLOXo.png" Stretch="Uniform"/>
                                     </Border.Background>
                                     <Border Background="Black" Margin="0,66,55,0" CornerRadius="0,0,0,10">
                                         <Label Content="999" Name="RightPlayer5Level" Margin="0,-2,0,2" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="11"/>
@@ -504,20 +504,20 @@
                                         <DropShadowEffect RenderingBias="Quality"/>
                                     </Border.Effect>
                                 </Border>
-                                <Image Name="RightPlayer5CurrentRank" Width="82" Height="75" Canvas.Right="12" Canvas.Top="11" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" HorizontalAlignment="Left"/>
-                                <Image Name="RightPlayer5ActOne" Width="25" Height="25" Canvas.Right="115" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" />
-                                <Image Name="RightPlayer5ActTwo" Width="25" Height="25" Canvas.Right="140" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" />
-                                <Image Name="RightPlayer5ActThree" Width="25" Height="25" Canvas.Right="165" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="UniformToFill" />
+                                <Image Name="RightPlayer5CurrentRank" Width="82" Height="82" Canvas.Right="12" Canvas.Top="5" Source="https://i.imgur.com/CFM5aK5.png" Stretch="Uniform" HorizontalAlignment="Left"/>
+                                <Image Name="RightPlayer5ActOne" Width="30" Height="30" Canvas.Right="115" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="Uniform" />
+                                <Image Name="RightPlayer5ActTwo" Width="30" Height="30" Canvas.Right="148" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="Uniform" />
+                                <Image Name="RightPlayer5ActThree" Width="30" Height="30" Canvas.Right="181" Canvas.Bottom="12" Source="https://i.imgur.com/CFM5aK5.png" Stretch="Uniform" />
                                 <Border Background="GreenYellow" Name="RightPlayer5RankRatingProgress" BorderThickness="2" BorderBrush="Transparent" Width="100" Height="8" Canvas.Left="496" Canvas.Top="92" CornerRadius="2"/>
                                 <Border Background="Transparent" BorderThickness="2" BorderBrush="#FF404040" Width="100" Height="8" Canvas.Left="496" Canvas.Top="92" CornerRadius="2"/>
-                                <Border Background="GreenYellow" Name="RightPlayer5ThirdGameRankRating" Width="25" Height="25" Canvas.Right="165"  Canvas.Top="7" CornerRadius="100">
-                                    <Label Foreground="Black" Content="+50" FontSize="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold"/>
+                                <Border Background="GreenYellow" Name="RightPlayer5ThirdGameRankRating" Width="30" Height="30" Canvas.Right="181"  Canvas.Top="7" CornerRadius="100">
+                                    <Label Foreground="Black" Content="+50" FontSize="11" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold" Margin="-1,1,1,0"/>
                                 </Border>
-                                <Border Background="GreenYellow" Name="RightPlayer5SecondGameRankRating" Width="25" Height="25" Canvas.Right="140"  Canvas.Top="7" CornerRadius="100">
-                                    <Label Foreground="Black" Content="+50" FontSize="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold"/>
+                                <Border Background="GreenYellow" Name="RightPlayer5SecondGameRankRating" Width="30" Height="30" Canvas.Right="148"  Canvas.Top="7" CornerRadius="100">
+                                    <Label Foreground="Black" Content="+50" FontSize="11" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold" Margin="-1,1,1,0"/>
                                 </Border>
-                                <Border Background="GreenYellow" Name="RightPlayer5FirstGameRankRating" Width="25" Height="25" Canvas.Right="115"  Canvas.Top="7" CornerRadius="100">
-                                    <Label Foreground="Black" Content="+50" FontSize="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold"/>
+                                <Border Background="GreenYellow" Name="RightPlayer5FirstGameRankRating" Width="30" Height="30" Canvas.Right="115"  Canvas.Top="7" CornerRadius="100">
+                                    <Label Foreground="Black" Content="+50" FontSize="11" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontWeight="Bold" Margin="-1,1,1,0"/>
                                 </Border>
                             </Canvas>
                         </Border>
@@ -527,6 +527,7 @@
             </Grid>
 
         </Grid>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="519,25,0,5" Click="Button_Click_1"/>
 
     </Grid>
 </Window>

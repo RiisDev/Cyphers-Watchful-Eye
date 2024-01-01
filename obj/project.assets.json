@@ -2,36 +2,28 @@
   "version": 3,
   "targets": {
     "net8.0-windows10.0.19041": {
-      "RadiantConnect/2.0.0": {
-        "type": "package",
+      "RadiantConnect/3.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
         "compile": {
-          "lib/net8.0/RadiantConnect.dll": {}
+          "bin/placeholder/RadiantConnect.dll": {}
         },
         "runtime": {
-          "lib/net8.0/RadiantConnect.dll": {}
+          "bin/placeholder/RadiantConnect.dll": {}
         }
       }
     }
   },
   "libraries": {
-    "RadiantConnect/2.0.0": {
-      "sha512": "xBRdM4rlDgyeNZVWZBAJbCu2uD4w0vgBDKfOpgSc38akBGd9muRFaVzvYHaYGKC5v0LxZ83XP81NF/OKFnjPpA==",
-      "type": "package",
-      "path": "radiantconnect/2.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "IrisCodingNexus - Icon.png",
-        "README.md",
-        "lib/net8.0/RadiantConnect.dll",
-        "radiantconnect.2.0.0.nupkg.sha512",
-        "radiantconnect.nuspec"
-      ]
+    "RadiantConnect/3.0.0": {
+      "type": "project",
+      "path": "../RadiantConnect/RadiantConnect.csproj",
+      "msbuildProject": "../RadiantConnect/RadiantConnect.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0-windows10.0.19041": [
-      "RadiantConnect >= 2.0.0"
+      "RadiantConnect >= 3.0.0"
     ]
   },
   "packageFolders": {
@@ -66,7 +58,11 @@
       "frameworks": {
         "net8.0-windows10.0.19041": {
           "targetAlias": "net8.0-windows10.0.19041.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "G:\\Sources\\C#\\Public Source Releases\\RadiantConnect\\RadiantConnect.csproj": {
+              "projectPath": "G:\\Sources\\C#\\Public Source Releases\\RadiantConnect\\RadiantConnect.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -78,12 +74,6 @@
     "frameworks": {
       "net8.0-windows10.0.19041": {
         "targetAlias": "net8.0-windows10.0.19041.0",
-        "dependencies": {
-          "RadiantConnect": {
-            "target": "Package",
-            "version": "[2.0.0, )"
-          }
-        },
         "imports": [
           "net461",
           "net462",
