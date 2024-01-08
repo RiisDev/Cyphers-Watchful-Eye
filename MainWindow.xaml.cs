@@ -1,7 +1,5 @@
 ﻿using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
-using System.Net.Http;
-using System.Text.Encodings.Web;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
@@ -12,11 +10,6 @@ using RadiantConnect.Network.CurrentGameEndpoints.DataTypes;
 using RadiantConnect.Network.PreGameEndpoints.DataTypes;
 using RadiantConnect.Network.PVPEndpoints.DataTypes;
 using Player = RadiantConnect.Network.CurrentGameEndpoints.DataTypes.Player;
-using System.Text.Json;
-using System.Text.RegularExpressions;
-using System.Web;
-using System.Xml.Linq;
-using Match = System.Text.RegularExpressions.Match;
 
 namespace CyphersWatchfulEye
 {
@@ -60,8 +53,11 @@ namespace CyphersWatchfulEye
                 foreach (UIElement? element in WpfWindowHelper.GetAllControls(Application.Current.MainWindow!))
                 {
                     if (element is not FrameworkElement frameworkElement) continue;
-
                     string name = frameworkElement.Name;
+
+                    if (frameworkElement.Name.Contains("Player") && frameworkElement.Parent is Canvas { Parent: Border border }) 
+                        border.Visibility = Visibility.Hidden;
+
                     if (name.Contains("LeftPlayer"))
                         AddToDictionary(name, frameworkElement, LeftPlayerElements, "LeftPlayer");
                     else if (name.Contains("RightPlayer"))
@@ -73,7 +69,7 @@ namespace CyphersWatchfulEye
                 int ExtractPlayerNumber(string elementName, string playerPrefix) =>
                     int.Parse(elementName.Substring(playerPrefix.Length, 1)) - 1;
 
-                void AddToDictionary(string elementName, FrameworkElement element, Dictionary<int, Dictionary<string, FrameworkElement>> playerElements, string playerPrefix) =>
+                void AddToDictionary(string elementName, FrameworkElement element, IReadOnlyDictionary<int, Dictionary<string, FrameworkElement>> playerElements, string playerPrefix) =>
                     playerElements[ExtractPlayerNumber(elementName, playerPrefix)].Add(elementName, element);
             });
             
@@ -98,6 +94,9 @@ namespace CyphersWatchfulEye
             Application.Current.Dispatcher.Invoke(() =>
             {
                 if (property == Image.SourceProperty) newProperty = new BitmapImage(new Uri(newProperty.ToString()!, UriKind.Absolute));
+
+                if (controlName.Contains("PlayerName"))
+                    ((playerControls[controlName].Parent as Canvas)!.Parent as Border)!.Visibility = Visibility.Visible;
 
                 if (property == WidthProperty)
                 {
@@ -127,7 +126,7 @@ namespace CyphersWatchfulEye
                         imageBrush.ImageSource = new BitmapImage(new Uri(newImageSource, UriKind.Absolute));
                     }
                 }
-                else if ((playerControls?[controlName!] as Border)?.Background is ImageBrush imageBrush)
+                else if (playerControls?[controlName!] is Border { Background: ImageBrush imageBrush })
                 {
                     imageBrush.ImageSource =  new BitmapImage(new Uri(newImageSource, UriKind.Absolute)) ;
                 }
@@ -180,10 +179,11 @@ namespace CyphersWatchfulEye
             _initiator.GameEvents.PreGame.OnPreGameMatchLoaded += PreGame_OnPreGameLoaded;
         }
 
-        private async Task SetPlayerControls(List<Player> playerList, Dictionary<int, Dictionary<string, FrameworkElement>> playerElements, int indexOffset = 0)
+        private async Task SetPlayerControls(IReadOnlyList<Player> playerList, IReadOnlyDictionary<int, Dictionary<string, FrameworkElement>> playerElements, int indexOffset = 0)
         {
             for (int playerIndex = 0; playerIndex < playerList.Count; playerIndex++)
             {
+                if (playerIndex >= 5) continue; 
                 double playerIndexNew = playerIndex + indexOffset + 1.0;
                 SetElementProperty(LoadingPlayers, ContentProperty, $"Loading: {Math.Round((playerIndexNew / 10) * 100)}%");
                 Dictionary<string, FrameworkElement> playerElement = playerElements[playerIndex];
@@ -194,7 +194,7 @@ namespace CyphersWatchfulEye
                 string prefix = (playerList[0].Subject == _leftPlayers[0].Subject) ? "LeftPlayer" : "RightPlayer";
                 
                 SetPlayerControlItem(playerElement, $"{prefix}{playerIndex + 1}Level", ContentProperty, player.PlayerIdentity.HideAccountLevel ? -1 : player.PlayerIdentity.AccountLevel);
-                SetPlayerControlItem(playerElement, $"{prefix}{playerIndex + 1}PlayerName", ContentProperty, (!player.PlayerIdentity.Incognito ? playerName : InternalValorantLogic.AgentIdToAgent[player.CharacterID!])!);
+                SetPlayerControlItem(playerElement, $"{prefix}{playerIndex + 1}PlayerName", ContentProperty, (!player.PlayerIdentity.Incognito ? playerName : InternalValorantLogic.AgentIdToAgent[player.CharacterID])!);
                 SetPlayerControlItem(playerElement, $"{prefix}{playerIndex + 1}AgentName", ContentProperty, InternalValorantLogic.AgentIdToAgent[player.CharacterID.ToLower()]);
                 SetPlayerControlItem(playerElement, $"{prefix}{playerIndex + 1}CurrentRank", Image.SourceProperty, valorantRank.RankIcon!);
                 SetPlayerControlItem(playerElement, $"{prefix}{playerIndex + 1}FirstGameRankRating", ContentProperty, rankRatingOne);
@@ -214,14 +214,15 @@ namespace CyphersWatchfulEye
             string leftTeamId = currentGameMatch?.Players[0].TeamID!;
             string internalMapName = (currentGameMatch?.MapID!)[(currentGameMatch.MapID.LastIndexOf('/') + 1)..];
 
-
             SetElementProperty(MapName, ContentProperty, MapInfo[internalMapName].Keys.First());
-            SetElementProperty(MatchType, ContentProperty, currentGameMatch.MatchmakingData.QueueID);
+
+            SetElementProperty(MatchType, ContentProperty, currentGameMatch.MatchmakingData != null! ? currentGameMatch.MatchmakingData.QueueID : "Custom");
+
             SetElementProperty(ServerRegion, ContentProperty, InternalValorantLogic.GamePodsDictionary[currentGameMatch.GamePodID]);
             SetBorderBackgroundImageSource(null, null, MapInfo[internalMapName].Values.First(), MapIcon);
         
-            _leftPlayers.AddRange(currentGameMatch?.Players.Where(player => player.TeamID == leftTeamId) ?? Enumerable.Empty<Player>());
-            _rightPlayers.AddRange(currentGameMatch?.Players.Where(player => player.TeamID != leftTeamId) ?? Enumerable.Empty<Player>());
+            _leftPlayers.AddRange(currentGameMatch.Players.Where(player => player.TeamID == leftTeamId));
+            _rightPlayers.AddRange(currentGameMatch.Players.Where(player => player.TeamID != leftTeamId));
 
             await SetPlayerControls(_leftPlayers, LeftPlayerElements);
             await SetPlayerControls(_rightPlayers, RightPlayerElements, 5);
@@ -235,7 +236,7 @@ namespace CyphersWatchfulEye
             try
             {
                 PreGameMatch? preGameMatch = await _initiator.Endpoints.PreGameEndpoints.FetchPreGameMatchAsync(matchId);
-                SetElementProperty(MapName, ContentProperty, (preGameMatch?.MapID!)[(preGameMatch.MapID.LastIndexOf('/') + 1)..]!);
+                SetElementProperty(MapName, ContentProperty, (preGameMatch?.MapID!)[(preGameMatch.MapID.LastIndexOf('/') + 1)..]);
                 SetElementProperty(MatchType, ContentProperty, preGameMatch.QueueID.ToUpper());
                 SetElementProperty(ServerRegion, ContentProperty, InternalValorantLogic.GamePodsDictionary[preGameMatch.GamePodID]);
             }
@@ -260,6 +261,7 @@ namespace CyphersWatchfulEye
                 MaxWidth = Width;
                 MaxHeight = Height;
 
+                SetupDictionaries();
                 await Task.Run(DoGameWatcher);
             };
         }
