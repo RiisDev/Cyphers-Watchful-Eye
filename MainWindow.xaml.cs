@@ -10,6 +10,7 @@ using RadiantConnect.Network.CurrentGameEndpoints.DataTypes;
 using RadiantConnect.Network.PreGameEndpoints.DataTypes;
 using RadiantConnect.Network.PVPEndpoints.DataTypes;
 using Player = RadiantConnect.Network.CurrentGameEndpoints.DataTypes.Player;
+using RadiantConnect.Methods;
 
 namespace CyphersWatchfulEye
 {
@@ -140,6 +141,51 @@ namespace CyphersWatchfulEye
             return $"{nameServiceData?.GameName}#{nameServiceData?.TagLine}";
         }
 
+        [SuppressMessage("ReSharper", "EmptyGeneralCatchClause")]
+        private async Task<(ValorantRank, ValorantRank, ValorantRank)> GetLastRanks(string userId)
+        {
+            string? act1 = null;
+            string? act2 = null;
+            string? act3 = null;
+
+            ValorantRank? rank1 = null;
+            ValorantRank? rank2 = null;
+            ValorantRank? rank3 = null;
+
+            PlayerMMR? playerMmr = await _initiator.Endpoints.PvpEndpoints.FetchPlayerMMRAsync(userId);
+            Content? content = await _initiator.Endpoints.PvpEndpoints.FetchContentAsync();
+            List<Season>? seasons = content?.Seasons.Where(x => x.Type == "act").ToList();
+            seasons?.Reverse();
+
+            bool foundLatest = false;
+
+            for (int seasonIndex = 0; seasonIndex < seasons?.Count; seasonIndex++)
+            {
+                Debug.WriteLine($"Season: {seasons[seasonIndex]}");
+                if (!seasons[seasonIndex].IsActive!.Value && !foundLatest) continue;
+                else if (!foundLatest)
+                {
+                    foundLatest = true;
+                    continue;
+                }
+
+                if (act1 is null)
+                    act1 = seasons[seasonIndex].ID;
+                else if (act2 is null)
+                    act2 = seasons[seasonIndex].ID;
+                else if (act3 is null)
+                    act3 = seasons[seasonIndex].ID;
+            }
+            
+            Dictionary<string, SeasonId>? seasonData = playerMmr?.QueueSkills.Competitive.SeasonalInfoBySeasonID;
+
+            try{if(act1 is not null)rank1=InternalValorantLogic.TierToRank[seasonData![act1].CompetitiveTier!.Value];}catch{}
+            try{if(act2 is not null)rank2=InternalValorantLogic.TierToRank[seasonData![act2].CompetitiveTier!.Value];}catch{}
+            try{if(act3 is not null)rank3=InternalValorantLogic.TierToRank[seasonData![act3].CompetitiveTier!.Value];}catch{}
+
+            return (rank1 ?? ValorantRank.Default(), rank2 ?? ValorantRank.Default(), rank3 ?? ValorantRank.Default());
+        }
+
         private async Task<(ValorantRank, long, long, long, long)> GetLastRankRatings(string userId)
         {
             CompetitiveUpdate? history = await _initiator.Endpoints.PvpEndpoints.FetchCompetitveUpdatesAsync(userId);
@@ -169,12 +215,12 @@ namespace CyphersWatchfulEye
         private void DoGameWatcher()
         {
             _initiator = new Initiator();
-
+            
             _initiator.GameEvents.Queue.OnEnteredQueue += _ => { SetElementProperty(GameState, ContentProperty, "In Queue"); };
             _initiator.GameEvents.Queue.OnLeftQueue += _ => { SetElementProperty(GameState, ContentProperty, "Lobby"); };
             _initiator.GameEvents.Queue.OnQueueChanged += data => { SetElementProperty(MatchType, ContentProperty, data?.ToUpper()!); };
 
-            _initiator.GameEvents.Match.OnMatchEnded += _ => { SetElementProperty(GameState, ContentProperty, "Lobby"); };
+            _initiator.GameEvents.Match.OnMatchEnded += _ => { SetElementProperty(GameState, ContentProperty, "Lobby"); SetupDictionaries(); };
             _initiator.GameEvents.Match.OnMatchStarted += Match_OnMatchStarted;
             _initiator.GameEvents.PreGame.OnPreGameMatchLoaded += PreGame_OnPreGameLoaded;
         }
@@ -183,24 +229,36 @@ namespace CyphersWatchfulEye
         {
             for (int playerIndex = 0; playerIndex < playerList.Count; playerIndex++)
             {
-                if (playerIndex >= 5) continue; 
+                if (playerIndex >= 5) continue;
+
                 double playerIndexNew = playerIndex + indexOffset + 1.0;
+
                 SetElementProperty(LoadingPlayers, ContentProperty, $"Loading: {Math.Round((playerIndexNew / 10) * 100)}%");
+
                 Dictionary<string, FrameworkElement> playerElement = playerElements[playerIndex];
                 Player player = playerList[playerIndex];
-                string? playerName = player.PlayerIdentity.Incognito ? InternalValorantLogic.AgentIdToAgent[player.CharacterID] : await GetInGameName(player.Subject);
-                (ValorantRank valorantRank, long currentRating, long rankRatingOne, long rankRatingTwo, long rankRatingThree) = await GetLastRankRatings(player.Subject);
 
+                (ValorantRank valorantRank, long currentRating, long rankRatingOne, long rankRatingTwo, long rankRatingThree) = await GetLastRankRatings(player.Subject);
+                (ValorantRank rank1, ValorantRank rank2, ValorantRank rank3) = await GetLastRanks(player.Subject);
+
+                string? playerName = player.PlayerIdentity.Incognito ? ValorantTables.AgentIdToAgent[player.CharacterID.ToLower()] : await GetInGameName(player.Subject);
                 string prefix = (playerList[0].Subject == _leftPlayers[0].Subject) ? "LeftPlayer" : "RightPlayer";
+                string playerIndexTitle = $"{prefix}{playerIndex + 1}";
+
+                SetPlayerControlItem(playerElement, $"{playerIndexTitle}Level", ContentProperty, player.PlayerIdentity.HideAccountLevel ? -1 : player.PlayerIdentity.AccountLevel);
+                SetPlayerControlItem(playerElement, $"{playerIndexTitle}PlayerName", ContentProperty, (!player.PlayerIdentity.Incognito ? playerName : ValorantTables.AgentIdToAgent[player.CharacterID.ToLower()])!);
+                SetPlayerControlItem(playerElement, $"{playerIndexTitle}AgentName", ContentProperty, ValorantTables.AgentIdToAgent[player.CharacterID.ToLower()]);
+                SetPlayerControlItem(playerElement, $"{playerIndexTitle}CurrentRank", Image.SourceProperty, valorantRank.RankIcon!);
                 
-                SetPlayerControlItem(playerElement, $"{prefix}{playerIndex + 1}Level", ContentProperty, player.PlayerIdentity.HideAccountLevel ? -1 : player.PlayerIdentity.AccountLevel);
-                SetPlayerControlItem(playerElement, $"{prefix}{playerIndex + 1}PlayerName", ContentProperty, (!player.PlayerIdentity.Incognito ? playerName : InternalValorantLogic.AgentIdToAgent[player.CharacterID])!);
-                SetPlayerControlItem(playerElement, $"{prefix}{playerIndex + 1}AgentName", ContentProperty, InternalValorantLogic.AgentIdToAgent[player.CharacterID.ToLower()]);
-                SetPlayerControlItem(playerElement, $"{prefix}{playerIndex + 1}CurrentRank", Image.SourceProperty, valorantRank.RankIcon!);
-                SetPlayerControlItem(playerElement, $"{prefix}{playerIndex + 1}FirstGameRankRating", ContentProperty, rankRatingOne);
-                SetPlayerControlItem(playerElement, $"{prefix}{playerIndex + 1}SecondGameRankRating", ContentProperty, rankRatingTwo);
-                SetPlayerControlItem(playerElement, $"{prefix}{playerIndex + 1}ThirdGameRankRating", ContentProperty, rankRatingThree);
-                SetPlayerControlItem(playerElement, $"{prefix}{playerIndex + 1}RankRatingProgress", WidthProperty, currentRating);
+                SetPlayerControlItem(playerElement, $"{playerIndexTitle}FirstGameRankRating", ContentProperty, rankRatingOne);
+                SetPlayerControlItem(playerElement, $"{playerIndexTitle}SecondGameRankRating", ContentProperty, rankRatingTwo);
+                SetPlayerControlItem(playerElement, $"{playerIndexTitle}ThirdGameRankRating", ContentProperty, rankRatingThree);
+                SetPlayerControlItem(playerElement, $"{playerIndexTitle}RankRatingProgress", WidthProperty, currentRating);
+                
+                SetPlayerControlItem(playerElement, $"{playerIndexTitle}ActThree", Image.SourceProperty, rank1.RankIcon!);
+                SetPlayerControlItem(playerElement, $"{playerIndexTitle}ActTwo", Image.SourceProperty, rank2.RankIcon!);
+                SetPlayerControlItem(playerElement, $"{playerIndexTitle}ActOne", Image.SourceProperty, rank3.RankIcon!);
+
                 SetBorderBackgroundImageSource(playerElement, $"{prefix}{playerIndex + 1}HeadshotIcon", InternalValorantLogic.AgentIdToIcon[player.CharacterID.ToLower()]);
             }
         }
@@ -218,7 +276,7 @@ namespace CyphersWatchfulEye
 
             SetElementProperty(MatchType, ContentProperty, currentGameMatch.MatchmakingData != null! ? currentGameMatch.MatchmakingData.QueueID : "Custom");
 
-            SetElementProperty(ServerRegion, ContentProperty, InternalValorantLogic.GamePodsDictionary[currentGameMatch.GamePodID]);
+            SetElementProperty(ServerRegion, ContentProperty, ValorantTables.GamePodsDictionary[currentGameMatch.GamePodID]);
             SetBorderBackgroundImageSource(null, null, MapInfo[internalMapName].Values.First(), MapIcon);
         
             _leftPlayers.AddRange(currentGameMatch.Players.Where(player => player.TeamID == leftTeamId));
@@ -238,7 +296,7 @@ namespace CyphersWatchfulEye
                 PreGameMatch? preGameMatch = await _initiator.Endpoints.PreGameEndpoints.FetchPreGameMatchAsync(matchId);
                 SetElementProperty(MapName, ContentProperty, (preGameMatch?.MapID!)[(preGameMatch.MapID.LastIndexOf('/') + 1)..]);
                 SetElementProperty(MatchType, ContentProperty, preGameMatch.QueueID.ToUpper());
-                SetElementProperty(ServerRegion, ContentProperty, InternalValorantLogic.GamePodsDictionary[preGameMatch.GamePodID]);
+                SetElementProperty(ServerRegion, ContentProperty, ValorantTables.GamePodsDictionary[preGameMatch.GamePodID]);
             }
             catch (KeyNotFoundException)
             {
